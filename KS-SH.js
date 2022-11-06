@@ -17,7 +17,7 @@ Module.register("KS-SH", {
         animationSpeed: 3000, // fade in and out speed
         initialLoadDelay: 4250,
         retryDelay: 2500,
-        updateInterval: 60 * 60 * 1000,
+        updateInterval: 30 * 1 * 1000,
 
     },
 
@@ -141,6 +141,7 @@ Module.register("KS-SH", {
 	
 // this tells module when to update
     scheduleUpdate: function() { 
+	console.log("KS-SH scheduleUpdate called.");
         setInterval(() => {
             this.getDevices();
         }, this.config.updateInterval);
@@ -149,7 +150,7 @@ Module.register("KS-SH", {
     },
 	
     getDevices: function(){
-        this.sendSocketNotification('GET_DEVICES','');
+        this.sendSocketNotification('GET_DEVICES', this.url);
     },
 	    
 	// this asks node_helper for data
@@ -161,6 +162,7 @@ Module.register("KS-SH", {
 	// this gets data from node_helper
     socketNotificationReceived: function(notification, payload) { 
         if (notification === "DEVICES_RESULT") {
+            console.log("socketNotificationReceived...");
             this.processDevices(payload);
             if (this.rotateInterval == null) {
                 this.scheduleCarousel();
