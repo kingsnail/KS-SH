@@ -141,7 +141,10 @@ Module.register("KS-SH", {
         var self = this;
     },
 	
-	
+    getDevices: function(){
+        this.sendSocketNotification('GET_DEVICES','');
+    },
+	    
 	// this asks node_helper for data
     getUFO: function() { 
         this.sendSocketNotification('GET_UFO', this.url);
@@ -150,7 +153,7 @@ Module.register("KS-SH", {
 	
 	// this gets data from node_helper
     socketNotificationReceived: function(notification, payload) { 
-        if (notification === "UFO_RESULT") {
+        if (notification === "DEVICES_RESULT") {
             this.processUFO(payload);
             if (this.rotateInterval == null) {
                 this.scheduleCarousel();
