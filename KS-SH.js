@@ -11,7 +11,7 @@ Module.register("KS-SH", {
 		city: "New York",
 		state: "NY",
         useHeader: true, // false if you don't want a header
-        header: "Loading UFO's!", // Any text you want
+        header: "Loading Data", // Any text you want
         maxWidth: "250px",
         rotateInterval: 30 * 1000,
         animationSpeed: 3000, // fade in and out speed
