@@ -27,7 +27,7 @@ module.exports = NodeHelper.create({
 	console.log("Calling Python...");
         const pythonProcess = spawn('python',["/home/mark/MagicMirror/modules/KS-SH/python/get_status.py"]);
 	pythonProcess.stdout.on('data', function (data) { var result = JSON.parse(data.toString());
-							 updatedDevices(result);
+							 this.updatedDevices(result);
 							 //console.log("devstr=" + data.toString());
 						        });
     },
