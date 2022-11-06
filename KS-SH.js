@@ -78,7 +78,7 @@ Module.register("KS-SH", {
 	}
 	
 	for(var grp = 0; grp < Groups.length; grp++){
-	        var grprow = documen.createElement("div");
+	        var grprow = document.createElement("div");
 		grprow.classList.add("xsmall", "bright", "shape");
 		grprow.innerHTML = "Group: " + Groups[grp].groupID + "(" + Groups[grp].name + "), state = " + Groups[grp].state;
 		wrapper.appendChild(gprrow);
