@@ -6,7 +6,7 @@
  */
 const NodeHelper = require('node_helper');
 const request = require('request');
-
+const spawn = require("child_process").spawn;
 
 
 module.exports = NodeHelper.create({
@@ -20,8 +20,7 @@ module.exports = NodeHelper.create({
 	var devstr ='{"devices":[{"bulbID":"65539","name":"Nazanins Light","brightness": "3","warmth":"NAN%","state":"on"},{"bulbID":"65538","name":"Bedside A","brightness":"3","warmth":"100.0%","state":"off"}],"groups":[{"groupID":"131077","name":"Guest Room","state":"off"},{"groupID":"131075","name":"Master Bedroom","state":"off"}]}';
 	var devstr = "";
 	console.log("Calling Python...");
-	const spawn = require("child_process").spawn;
-        const pythonProcess = spawn('python',["/home/mark/MagicMirror/modules/KS-SH/get_status.py"]);
+        const pythonProcess = spawn('python',["/home/mark/MagicMirror/modules/KS-SH/python/get_status.py"]);
 	pythonProcess.stdout.on('data', function (data) { devstr = data;
 						          console.log("devstr=");
 						          console.log(data);});
