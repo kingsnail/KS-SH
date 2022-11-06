@@ -15,6 +15,11 @@ module.exports = NodeHelper.create({
         console.log("Starting node_helper for: " + this.name);
     },
 
+    getDevices: function() {
+        /* Call the external python module to get the list of device status values */
+	console.log("KS-SH: Requsesting device update." );   
+    },
+	
     getUFO: function(url) {
         request({
             url: url,
@@ -33,5 +38,8 @@ module.exports = NodeHelper.create({
         if (notification === 'GET_UFO') {
             this.getUFO(payload);
         }
+	if (notification === 'GET_DEVICES') {
+	    this.getDevices();
+	}
     }
 });
