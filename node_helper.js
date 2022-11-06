@@ -18,6 +18,8 @@ module.exports = NodeHelper.create({
     getDevices: function() {
         /* Call the external python module to get the list of device status values */
 	console.log("KS-SH: Requsesting device update." );   
+	var result = JSON.parse("devices:[]")
+	this.sendSocketNotification('DEVICES_RESULT', result);
     },
 	
     getUFO: function(url) {
