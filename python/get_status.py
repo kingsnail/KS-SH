@@ -3,7 +3,7 @@
 op = ""
 op += '{ "devices": [\n'
 op += '		{ "bulbID": 	"65539", \n'
-op += '		  "name":    	"Nazanin's Light",\n'
+op += '		  "name":    	"Nazanins Light",\n'
 op += '		  "brightness": "3", \n'
 op += '		  "warmth":		"NAN%", \n'
 op += '		  "state":		"on"\n'
