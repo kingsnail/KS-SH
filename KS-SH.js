@@ -69,7 +69,7 @@ Module.register("KS-SH", {
         var top = document.createElement("div");
         top.classList.add("list-row");
 	    
-	for(var dev = 0; i < Devs.length; dev++){	
+	for(var dev = 0; dev < Devs.length; dev++){	
 		var devrow = document.createElement("div");
             	devrow.classList.add("xsmall", "bright", "shape");
             	devrow.innerHTML = "Bulb: " + Devs[dev].bulbID + "(" + Devs[dev].name + "), state = " + Devs[dev].state;
