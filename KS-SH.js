@@ -81,7 +81,7 @@ Module.register("KS-SH", {
 	        var grprow = document.createElement("div");
 		grprow.classList.add("xsmall", "bright", "shape");
 		grprow.innerHTML = "Group: " + Groups[grp].groupID + "(" + Groups[grp].name + "), state = " + Groups[grp].state;
-		wrapper.appendChild(gprrow);
+		wrapper.appendChild(grprow);
 	}
 	 	
         return wrapper;
