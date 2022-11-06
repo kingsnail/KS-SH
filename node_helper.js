@@ -51,7 +51,7 @@ module.exports = NodeHelper.create({
             this.getUFO(payload);
         }
 	if (notification === 'GET_DEVICES') {
-	    this.getDevices(updatedDevices);
+	    this.getDevices(this.updatedDevices);
 	}
     }
 });
