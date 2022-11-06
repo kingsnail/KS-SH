@@ -124,6 +124,8 @@ Module.register("KS-SH", {
     
     processDevices: function(data) {
         this.Devices = data;
+        console.log("Devices Updated");
+	console.log(this.Devices);
 	this.loaded  = true;
     }
 	
