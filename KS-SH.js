@@ -124,7 +124,7 @@ Module.register("KS-SH", {
     
     processDevices: function(data) {
         this.Devices = data;
-        console.log("Devices Updated");
+        console.log("KS-SH: Devices Updated");
 	console.log(this.Devices);
 	this.loaded  = true;
     },
@@ -150,11 +150,13 @@ Module.register("KS-SH", {
     },
 	
     getDevices: function(){
+        console.log("KS-SH: getDevices called...");
         this.sendSocketNotification('GET_DEVICES', this.url);
     },
 	    
 	// this asks node_helper for data
     getUFO: function() { 
+        console.log("KS-SH: getUFO called...");
         this.sendSocketNotification('GET_UFO', this.url);
     },
 	
@@ -162,7 +164,7 @@ Module.register("KS-SH", {
 	// this gets data from node_helper
     socketNotificationReceived: function(notification, payload) { 
         if (notification === "DEVICES_RESULT") {
-            console.log("socketNotificationReceived...");
+            console.log("KS-SH: socketNotificationReceived...");
             this.processDevices(payload);
             if (this.rotateInterval == null) {
                 this.scheduleCarousel();
