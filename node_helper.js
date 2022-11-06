@@ -11,13 +11,13 @@ const spawn = require("child_process").spawn;
 
 module.exports = NodeHelper.create({
 	
-    var devstr = "Test";
 
     start: function() {
         console.log("Starting node_helper for: " + this.name);
     },
 
-    getDevices: function() {
+    getDevices: function() {    
+	var devstr = "Test";
         /* Call the external python module to get the list of device status values */
 	// devstr ='{"devices":[{"bulbID":"65539","name":"Nazanins Light","brightness": "3","warmth":"NAN%","state":"on"},{"bulbID":"65538","name":"Bedside A","brightness":"3","warmth":"100.0%","state":"off"}],"groups":[{"groupID":"131077","name":"Guest Room","state":"off"},{"groupID":"131075","name":"Master Bedroom","state":"off"}]}';
 	console.log("Calling Python...");
