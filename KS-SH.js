@@ -127,7 +127,7 @@ Module.register("KS-SH", {
         console.log("Devices Updated");
 	console.log(this.Devices);
 	this.loaded  = true;
-    }
+    },
 	
 	// this rotates your data
     scheduleCarousel: function() { 
