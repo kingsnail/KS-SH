@@ -68,16 +68,14 @@ Module.register("KS-SH", {
 	// Creating the div's for your data items
         var top = document.createElement("div");
         top.classList.add("list-row");
-	
+	    
 	for(var dev = 0; i < Devs.length; dev++){	
 		var devrow = document.createElement("div");
             	devrow.classList.add("xsmall", "bright", "shape");
             	devrow.innerHTML = "Bulb: " + Devs[dev].bulbID + "(" + Devs[dev].name + "), state = " + Devs[dev].state;
             	wrapper.appendChild(devrow);
-		}
-	    
-        } // <-- closes the rotation of the data
-		
+	}
+	 	
         return wrapper;
 		
     }, // <-- closes the getDom function from above
