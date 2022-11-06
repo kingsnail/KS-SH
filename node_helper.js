@@ -25,7 +25,8 @@ module.exports = NodeHelper.create({
 	pythonProcess.stdout.on('data', function (data) { devstr = data;
 						          console.log("devstr=");
 						          console.log(data);});
-	//console.log("KS-SH: Requsesting device update." );
+	console.log("KS-SH: Requsesting device update." );
+	console.log(devstr );
 	var result = JSON.parse(devstr);
 	console.log(result);
 	this.sendSocketNotification('DEVICES_RESULT', result);
