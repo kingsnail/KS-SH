@@ -10,6 +10,8 @@ const spawn = require("child_process").spawn;
 
 
 module.exports = NodeHelper.create({
+	
+    var devstr = "Test";
 
     start: function() {
         console.log("Starting node_helper for: " + this.name);
@@ -17,16 +19,15 @@ module.exports = NodeHelper.create({
 
     getDevices: function() {
         /* Call the external python module to get the list of device status values */
-	var devstr ='{"devices":[{"bulbID":"65539","name":"Nazanins Light","brightness": "3","warmth":"NAN%","state":"on"},{"bulbID":"65538","name":"Bedside A","brightness":"3","warmth":"100.0%","state":"off"}],"groups":[{"groupID":"131077","name":"Guest Room","state":"off"},{"groupID":"131075","name":"Master Bedroom","state":"off"}]}';
-	var devstr = "Test";
+	// devstr ='{"devices":[{"bulbID":"65539","name":"Nazanins Light","brightness": "3","warmth":"NAN%","state":"on"},{"bulbID":"65538","name":"Bedside A","brightness":"3","warmth":"100.0%","state":"off"}],"groups":[{"groupID":"131077","name":"Guest Room","state":"off"},{"groupID":"131075","name":"Master Bedroom","state":"off"}]}';
 	console.log("Calling Python...");
         const pythonProcess = spawn('python',["/home/mark/MagicMirror/modules/KS-SH/python/get_status.py"]);
-	pythonProcess.stdout.on('data', function (data) { devstr = data;
+	pythonProcess.stdout.on('data', function (data) { this.devstr = data.toString();
 						          console.log("devstr=" + data.toString());
 						        });
 	console.log("KS-SH: Requsesting device update." );
-	console.log(devstr.toString() );
-	var result = JSON.parse(devstr);
+	console.log(this.devstr.toString() );
+	var result = JSON.parse(this.devstr);
 	console.log(result);
 	this.sendSocketNotification('DEVICES_RESULT', result);
     },
