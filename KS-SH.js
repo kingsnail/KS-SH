@@ -68,7 +68,7 @@ Module.register("KS-SH", {
                 this.activeItem = 0;
             }
 	    console.log("Devices...");
-	    console.log(Devices);
+	    console.log(this.Devices);
             var Dev = this.Devices[Keys[this.activeItem]];
 
 			
