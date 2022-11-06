@@ -29,7 +29,7 @@ module.exports = NodeHelper.create({
         }, (error, response, body) => {
             if (!error && response.statusCode == 200) {
                 var result = JSON.parse(body).sightings; // sightings is from JSON data
-		//		console.log(response.statusCode + result); // uncomment to see in terminal
+   		    console.log(response.statusCode + result); // uncomment to see in terminal
                     this.sendSocketNotification('UFO_RESULT', result);
 		
             }
