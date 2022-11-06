@@ -1,10 +1,10 @@
 /* Magic Mirror
- * Module: MMM-UFO
+ * Module: KS-SH
  *
- * By Mykle1
+ * By Mark Pearce
  *
  */
-Module.register("MMM-UFO", {
+Module.register("KS-SH", {
 
     // Module config defaults.
     defaults: {
@@ -22,7 +22,7 @@ Module.register("MMM-UFO", {
     },
 
     getStyles: function() {
-        return ["MMM-UFO.css"];
+        return ["KS-SH.css"];
     },
 
     start: function() {
