@@ -1,7 +1,7 @@
 /* Magic Mirror
- * Module: MMM-UFO
+ * Module: KS-SH
  *
- * By Mykle1
+ * By Mark Pearce
  *
  */
 const NodeHelper = require('node_helper');
