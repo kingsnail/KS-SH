@@ -28,7 +28,7 @@ module.exports = NodeHelper.create({
         /* Call the external python module to get the list of device status values */
 	// devstr ='{"devices":[{"bulbID":"65539","name":"Nazanins Light","brightness": "3","warmth":"NAN%","state":"on"},{"bulbID":"65538","name":"Bedside A","brightness":"3","warmth":"100.0%","state":"off"}],"groups":[{"groupID":"131077","name":"Guest Room","state":"off"},{"groupID":"131075","name":"Master Bedroom","state":"off"}]}';
 	//console.log("Calling Python...");
-        const pythonProcess = spawn('python',["/home/mark/MagicMirror/modules/KS-SH/python/get_status.py"]);
+        const pythonProcess = spawn('python',["/home/mark/MagicMirror/modules/KS-SH/python/tradfri-status.py"]);
 	pythonProcess.stdout.on('data', function (data) { var result = JSON.parse(data.toString());
 							 callback(result);
 							 //console.log("devstr=" + data.toString());
