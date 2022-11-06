@@ -18,8 +18,8 @@ module.exports = NodeHelper.create({
     },
 
     updatedDevices: function(devs){
-	console.log("Callback triggered");
-	console.log(devs);
+	//console.log("Callback triggered");
+	//console.log(devs);
         self.sendSocketNotification('DEVICES_RESULT', devs);
     },
 	
@@ -27,7 +27,7 @@ module.exports = NodeHelper.create({
 	var devstr = "Test";
         /* Call the external python module to get the list of device status values */
 	// devstr ='{"devices":[{"bulbID":"65539","name":"Nazanins Light","brightness": "3","warmth":"NAN%","state":"on"},{"bulbID":"65538","name":"Bedside A","brightness":"3","warmth":"100.0%","state":"off"}],"groups":[{"groupID":"131077","name":"Guest Room","state":"off"},{"groupID":"131075","name":"Master Bedroom","state":"off"}]}';
-	console.log("Calling Python...");
+	//console.log("Calling Python...");
         const pythonProcess = spawn('python',["/home/mark/MagicMirror/modules/KS-SH/python/get_status.py"]);
 	pythonProcess.stdout.on('data', function (data) { var result = JSON.parse(data.toString());
 							 callback(result);
