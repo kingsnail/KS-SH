@@ -4,27 +4,27 @@
  * Pick your color, copy and paste the HEX number. Example - #62FF00 = bright green.
  */
  
-.MMM-UFO .header{
-  color: white;               /* Header color. Default is white. */
+.KS-SH .header{
+  color: green;               /* Header color. Default is white. */
   text-align: left;           /* Align header text. (left, center, right) */
 }
 
-.MMM-UFO .shape {
+.KS-SH .shape {
   color: white;               /* Color the shape. Default is white. */
 }
 
-.MMM-UFO .date {
+.KS-SH .date {
   color: white;               /* Color the date. Default is white. */
 }
 
-.MMM-UFO .cityState {
+.KS-SH .cityState {
   color: white;               /* Color the cityState. Default is white. */
 }
 
-.MMM-UFO .duration {
+.KS-SH .duration {
   color: white;               /* Color possible duration. Default is white. */
 }
 
-.MMM-UFO .summary {
+.KS-SH .summary {
   color: white;               /* Color possible summary. Default is white. */
 }
