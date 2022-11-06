@@ -31,7 +31,7 @@ module.exports = NodeHelper.create({
         const pythonProcess = spawn('python',["/home/mark/MagicMirror/modules/KS-SH/python/tradfri-status.py"]);
 	pythonProcess.stdout.on('data', function (data) { var result = JSON.parse(data.toString());
 							 callback(result);
-							 //console.log("devstr=" + data.toString());
+							 console.log("devstr=" + data.toString());
 						        });
     },
  
