@@ -67,6 +67,8 @@ Module.register("KS-SH", {
             if (this.activeItem >= Keys.length) {
                 this.activeItem = 0;
             }
+	    console.log("Devices...");
+	    console.log(Devices);
             var Dev = this.Devices[Keys[this.activeItem]];
 
 			
