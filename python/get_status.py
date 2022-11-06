@@ -1,4 +1,4 @@
-
+import sys
 
 op = ""
 op += '{ "devices": [\n'
