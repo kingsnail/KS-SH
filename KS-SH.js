@@ -47,7 +47,7 @@ Module.register("KS-SH", {
 
 		// The loading sequence
         if (!this.loaded) {
-            wrapper.innerHTML = "UFO's Appearing . . !";
+            wrapper.innerHTML = "Loading Devices . . !";
             wrapper.classList.add("bright", "light", "small");
             return wrapper;
         }
