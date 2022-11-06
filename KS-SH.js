@@ -64,6 +64,7 @@ Module.register("KS-SH", {
 		// Rotating the data
         // Display the lights
 	var Devs = this.Devices.devices;
+	var Groups = this.Devices.groups;
 
 	// Creating the div's for your data items
         var top = document.createElement("div");
@@ -74,6 +75,13 @@ Module.register("KS-SH", {
             	devrow.classList.add("xsmall", "bright", "shape");
             	devrow.innerHTML = "Bulb: " + Devs[dev].bulbID + "(" + Devs[dev].name + "), state = " + Devs[dev].state;
             	wrapper.appendChild(devrow);
+	}
+	
+	for(var grp = 0; grp < Groups.length; grp++){
+	        var grprow = documen.createElement("div");
+		grprow.classList.add("xsmall", "bright", "shape");
+		grprow.innerHTML = "Group: " + Groups[grp].groupID + "(" + Groups[grp].name + "), state = " + Groups[grp].state;
+		wrapper.appendChild(gprrow);
 	}
 	 	
         return wrapper;
