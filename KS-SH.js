@@ -33,6 +33,7 @@ Module.register("KS-SH", {
         // Set locale.
         this.url = "https://ufo-api.herokuapp.com/api/sightings/search?city=" + this.config.city + "&state=" + this.config.state + "&limit=50&skip=0";
         this.UFO = [];
+	this.Devices = [];
         this.activeItem = 0;         // <-- starts rotation at item 0 (see Rotation below)
         this.rotateInterval = null;  // <-- sets rotation time (see below)
         this.scheduleUpdate();       // <-- When the module updates (see below)
@@ -120,7 +121,11 @@ Module.register("KS-SH", {
     //    console.log(this.UFO); // uncomment to see if you're getting data (in dev console)
         this.loaded = true;
     },
-	
+    
+    processDevices: function(data) {
+        this.Devices = data;
+	this.loaded  = true;
+    }
 	
 	// this rotates your data
     scheduleCarousel: function() { 
@@ -135,9 +140,9 @@ Module.register("KS-SH", {
 // this tells module when to update
     scheduleUpdate: function() { 
         setInterval(() => {
-            this.getUFO();
+            this.getDevices();
         }, this.config.updateInterval);
-        this.getUFO(this.config.initialLoadDelay);
+        this.getDevices(this.config.initialLoadDelay);
         var self = this;
     },
 	
@@ -154,7 +159,7 @@ Module.register("KS-SH", {
 	// this gets data from node_helper
     socketNotificationReceived: function(notification, payload) { 
         if (notification === "DEVICES_RESULT") {
-            this.processUFO(payload);
+            this.processDevices(payload);
             if (this.rotateInterval == null) {
                 this.scheduleCarousel();
             }
