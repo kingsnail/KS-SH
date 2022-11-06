@@ -16,6 +16,10 @@ module.exports = NodeHelper.create({
         console.log("Starting node_helper for: " + this.name);
     },
 
+    updatedDevices: function(devs){
+        this.sendSocketNotification('DEVICES_RESULT', devs);
+    },
+	
     getDevices: function() {    
 	var devstr = "Test";
         /* Call the external python module to get the list of device status values */
@@ -23,11 +27,11 @@ module.exports = NodeHelper.create({
 	console.log("Calling Python...");
         const pythonProcess = spawn('python',["/home/mark/MagicMirror/modules/KS-SH/python/get_status.py"]);
 	pythonProcess.stdout.on('data', function (data) { var result = JSON.parse(data.toString());
-							  this.sendSocketNotification('DEVICES_RESULT', result);
+							 updatedDevices(result);
 							 //console.log("devstr=" + data.toString());
 						        });
     },
-	
+ 
     getUFO: function(url) {
         request({
             url: url,
