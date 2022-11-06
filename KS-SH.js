@@ -85,7 +85,7 @@ Module.register("KS-SH", {
 			// name element from data
 			var name = document.createElement("div");
             name.classList.add("xsmall", "bright", "date");
-            name.innerHTML = "Name: " + Dev.name);
+            name.innerHTML = "Name: " + Dev.name;
             wrapper.appendChild(name);
 			
 			
