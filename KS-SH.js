@@ -68,8 +68,8 @@ Module.register("KS-SH", {
                 this.activeItem = 0;
             }
 	    console.log("Devices...");
-	    console.log(this.Devices);
-            var Dev = this.Devices[Keys[this.activeItem]];
+	    console.log(this.Devices.devices);
+            var Dev = this.Devices.devices[Keys[this.activeItem]];
 
 			
 			// Creating the div's for your data items
