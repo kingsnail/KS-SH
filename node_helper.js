@@ -14,6 +14,7 @@ module.exports = NodeHelper.create({
 
     start: function() {
         console.log("Starting node_helper for: " + this.name);
+	var self = this;
     },
 
     updatedDevices: function(devs){
