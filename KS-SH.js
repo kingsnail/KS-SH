@@ -62,12 +62,12 @@ Module.register("KS-SH", {
         }
 
 		// Rotating the data
-        var Keys = Object.keys(this.UFO);
+        var Keys = Object.keys(this.Devices.devices);
         if (Keys.length > 0) {
             if (this.activeItem >= Keys.length) {
                 this.activeItem = 0;
             }
-            var UFO = this.UFO[Keys[this.activeItem]];
+            var Dev = this.Devices[Keys[this.activeItem]];
 
 			
 			// Creating the div's for your data items
@@ -76,39 +76,26 @@ Module.register("KS-SH", {
 			
 			
 			// shape element from data
-			var shape = document.createElement("div");
-            shape.classList.add("xsmall", "bright", "shape");
-            shape.innerHTML = UFO.shape + " shaped UFO object";
-            wrapper.appendChild(shape);
+			var bulb = document.createElement("div");
+            bulb.classList.add("xsmall", "bright", "shape");
+            bulb.innerHTML = "Bulb: " + Dev.bulbID;
+            wrapper.appendChild(bulb);
 			
 			
-			// date element from data
-			var date = document.createElement("div");
-            date.classList.add("xsmall", "bright", "date");
-            date.innerHTML = "Sighted: " + moment(UFO.date, "YYYY-MM-DD HH:mm:ss Z").local().format("MMM DD, YYYY @ hh:mm a");
-            wrapper.appendChild(date);
+			// name element from data
+			var name = document.createElement("div");
+            name.classList.add("xsmall", "bright", "date");
+            name.innerHTML = "Name: " + Dev.name);
+            wrapper.appendChild(name);
 			
 			
-			// city and state elements from data
-			var cityState = document.createElement("div");
-            cityState.classList.add("xsmall", "bright", "cityState");
-            cityState.innerHTML = "In " + UFO.city + ", " + UFO.state;
-            wrapper.appendChild(cityState);
+			// state element from data
+			var state = document.createElement("div");
+            state.classList.add("xsmall", "bright", "duration");
+            state.innerHTML = "State: " + Dev.state;
+            wrapper.appendChild(state);
+		
 			
-			
-			// duration element from data
-			var duration = document.createElement("div");
-            duration.classList.add("xsmall", "bright", "duration");
-            duration.innerHTML = "Duration of sighting was " + UFO.duration;
-            wrapper.appendChild(duration);
-			
-			
-			// summary element from data
-            var summary = document.createElement("div");
-            summary.classList.add("xsmall", "bright", "summary");
-            summary.innerHTML = "Witness statement: " + UFO.summary;
-            wrapper.appendChild(summary);
-
         } // <-- closes the rotation of the data
 		
         return wrapper;
@@ -124,8 +111,8 @@ Module.register("KS-SH", {
     
     processDevices: function(data) {
         this.Devices = data;
-        console.log("KS-SH: Devices Updated");
-	console.log(this.Devices);
+        //console.log("KS-SH: Devices Updated");
+	//console.log(this.Devices);
 	this.loaded  = true;
     },
 	
