@@ -17,6 +17,7 @@ module.exports = NodeHelper.create({
     },
 
     updatedDevices: function(devs){
+	console.log("Callback triggered");
         this.sendSocketNotification('DEVICES_RESULT', devs);
     },
 	
