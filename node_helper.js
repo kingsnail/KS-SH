@@ -7,14 +7,14 @@
 const NodeHelper = require('node_helper');
 const request = require('request');
 const spawn = require("child_process").spawn;
-
+var self;
 
 module.exports = NodeHelper.create({
 	
 
     start: function() {
         console.log("Starting node_helper for: " + this.name);
-	var self = this;
+	self = this;
     },
 
     updatedDevices: function(devs){
