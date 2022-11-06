@@ -17,10 +17,14 @@ module.exports = NodeHelper.create({
 
     getDevices: function() {
         /* Call the external python module to get the list of device status values */
-	//console.log("KS-SH: Requsesting device update." );
 	var devstr ='{"devices":[{"bulbID":"65539","name":"Nazanins Light","brightness": "3","warmth":"NAN%","state":"on"},{"bulbID":"65538","name":"Bedside A","brightness":"3","warmth":"100.0%","state":"off"}],"groups":[{"groupID":"131077","name":"Guest Room","state":"off"},{"groupID":"131075","name":"Master Bedroom","state":"off"}]}';
+	var devstr = "";
+	const spawn = require("child_process").spawn;
+        const pythonProcess = spawn('python',["/home/mark/MagicMirror/modules/KS-SH/get_status.py"]);
+	pythonProcess.stdout.on('data', (data) => { devstr = data; });
+	//console.log("KS-SH: Requsesting device update." );
 	var result = JSON.parse(devstr);
-	//console.log(result);
+	console.log(result);
 	this.sendSocketNotification('DEVICES_RESULT', result);
     },
 	
