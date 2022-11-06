@@ -62,42 +62,20 @@ Module.register("KS-SH", {
         }
 
 		// Rotating the data
-        var Keys = Object.keys(this.Devices.devices);
-        if (Keys.length > 0) {
-            if (this.activeItem >= Keys.length) {
-                this.activeItem = 0;
-            }
-	    console.log("Devices...");
-	    console.log(this.Devices.devices);
-            var Dev = this.Devices.devices[Keys[this.activeItem]];
+        // Display the lights
+	var Devs = this.Devices.devices;
 
-			
-			// Creating the div's for your data items
-            var top = document.createElement("div");
-            top.classList.add("list-row");
-			
-			
-			// shape element from data
-			var bulb = document.createElement("div");
-            bulb.classList.add("xsmall", "bright", "shape");
-            bulb.innerHTML = "Bulb: " + Dev.bulbID;
-            wrapper.appendChild(bulb);
-			
-			
-			// name element from data
-			var name = document.createElement("div");
-            name.classList.add("xsmall", "bright", "date");
-            name.innerHTML = "Name: " + Dev.name;
-            wrapper.appendChild(name);
-			
-			
-			// state element from data
-			var state = document.createElement("div");
-            state.classList.add("xsmall", "bright", "duration");
-            state.innerHTML = "State: " + Dev.state;
-            wrapper.appendChild(state);
-		
-			
+	// Creating the div's for your data items
+        var top = document.createElement("div");
+        top.classList.add("list-row");
+	
+	for(var dev = 0; i < Devs.length; dev++){	
+		var devrow = document.createElement("div");
+            	devrow.classList.add("xsmall", "bright", "shape");
+            	devrow.innerHTML = "Bulb: " + Devs[dev].bulbID + "(" + Devs[dev].name + "), state = " + Devs[dev].state;
+            	wrapper.appendChild(devrow);
+		}
+	    
         } // <-- closes the rotation of the data
 		
         return wrapper;
