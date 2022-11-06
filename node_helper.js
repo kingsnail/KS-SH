@@ -21,7 +21,9 @@ module.exports = NodeHelper.create({
 	var devstr = "";
 	const spawn = require("child_process").spawn;
         const pythonProcess = spawn('python',["/home/mark/MagicMirror/modules/KS-SH/get_status.py"]);
-	pythonProcess.stdout.on('data', (data) => { devstr = data; });
+	pythonProcess.stdout.on('data', (data) => { devstr = data;
+						    console.log("devstr=");
+						    console.log(devstr);});
 	//console.log("KS-SH: Requsesting device update." );
 	var result = JSON.parse(devstr);
 	console.log(result);
