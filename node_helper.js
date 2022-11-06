@@ -19,7 +19,7 @@ module.exports = NodeHelper.create({
     updatedDevices: function(devs){
 	console.log("Callback triggered");
 	console.log(devs);
-        sendSocketNotification('DEVICES_RESULT', devs);
+        self.sendSocketNotification('DEVICES_RESULT', devs);
     },
 	
     getDevices: function(callback) {    
