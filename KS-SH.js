@@ -72,7 +72,7 @@ Module.register("KS-SH", {
 	    
 	for(var dev = 0; dev < Devs.length; dev++){	
 		var devrow = document.createElement("div");
-		if Devs[dev].state === "on":
+		if (Devs[dev].state === "on"):
             	    devrow.classList.add("xsmall", "bright", "state_on");
                 else:
 		    devrow.classList.add("xsmall", "bright", "state_off");
@@ -82,7 +82,7 @@ Module.register("KS-SH", {
 	
 	for(var grp = 0; grp < Groups.length; grp++){
 	        var grprow = document.createElement("div");
-		if Groups[grp].state === "on":
+		if (Groups[grp].state === "on"):
    		    grprow.classList.add("xsmall", "bright", "state_on");
                 else:
 		    grprow.classList.add("xsmall", "bright", "state_off");
