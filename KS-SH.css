@@ -9,8 +9,12 @@
   text-align: left;           /* Align header text. (left, center, right) */
 }
 
-.KS-SH .shape {
-  color: white;               /* Color the shape. Default is white. */
+.KS-SH .state_on {
+  color: green;               /* Color the on indication green. */
+}
+
+.KS-SH .state_off {
+  color: red;                /* Color the off indication red. */
 }
 
 .KS-SH .date {
