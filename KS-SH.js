@@ -77,7 +77,7 @@ Module.register("KS-SH", {
 		} else {
 		    devrow.classList.add("xsmall", "bright", "state_off");
 		}
-            	devrow.innerHTML = "Bulb: " + Devs[dev].bulbID + "(" + Devs[dev].name + "), state = " + Devs[dev].state + "B:" + Devs[dev].brightness;
+            	devrow.innerHTML = Devs[dev].name + "  " + Devs[dev].state + " B(" + Devs[dev].brightness + "), W(" + Devs[dev].warmth + ")";
             	wrapper.appendChild(devrow);
 	}
 	
