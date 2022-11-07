@@ -72,14 +72,20 @@ Module.register("KS-SH", {
 	    
 	for(var dev = 0; dev < Devs.length; dev++){	
 		var devrow = document.createElement("div");
-            	devrow.classList.add("xsmall", "bright", "shape");
-            	devrow.innerHTML = "Bulb: " + Devs[dev].bulbID + "(" + Devs[dev].name + "), state = " + Devs[dev].state;
+		if Devs[dev].state === "on":
+            	    devrow.classList.add("xsmall", "bright", "state_on");
+                else:
+		    devrow.classList.add("xsmall", "bright", "state_off");
+            	devrow.innerHTML = "Bulb: " + Devs[dev].bulbID + "(" + Devs[dev].name + "), state = " + Devs[dev].state + "B:" + Devs[dev].brightness;
             	wrapper.appendChild(devrow);
 	}
 	
 	for(var grp = 0; grp < Groups.length; grp++){
 	        var grprow = document.createElement("div");
-		grprow.classList.add("xsmall", "bright", "shape");
+		if Groups[grp].state === "on":
+   		    grprow.classList.add("xsmall", "bright", "state_on");
+                else:
+		    grprow.classList.add("xsmall", "bright", "state_off");
 		grprow.innerHTML = "Group: " + Groups[grp].groupID + "(" + Groups[grp].name + "), state = " + Groups[grp].state;
 		wrapper.appendChild(grprow);
 	}
