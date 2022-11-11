@@ -14,10 +14,10 @@ Module.register("KS-SH", {
         header: "Loading Data", // Any text you want
         maxWidth: "250px",
         rotateInterval: 30 * 1000,
-        animationSpeed: 3000, // fade in and out speed
+        animationSpeed: 1000, // fade in and out speed
         initialLoadDelay: 4250,
         retryDelay: 2500,
-        updateInterval: 30 * 1 * 1000,
+        updateInterval: 10 * 1 * 1000,
 
     },
 
@@ -73,9 +73,9 @@ Module.register("KS-SH", {
 	for(var dev = 0; dev < Devs.length; dev++){	
 		var devrow = document.createElement("div");
 		if (Devs[dev].state === "on"){
-            	    devrow.classList.add("xsmall", "bright", "state_on");
+            	    devrow.classList.add("small", "bright", "state_on");
 		} else {
-		    devrow.classList.add("xsmall", "bright", "state_off");
+		    devrow.classList.add("small", "bright", "state_off");
 		}
             	devrow.innerHTML = Devs[dev].name + "  " + Devs[dev].state + " B(" + Devs[dev].brightness + "), W(" + Devs[dev].warmth + ")";
             	wrapper.appendChild(devrow);
