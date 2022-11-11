@@ -11,18 +11,16 @@
 
 .KS-SH .state_on {
   color: green;               /* Color the on indication green. */
+  text-align: left;
 }
 
 .KS-SH .state_off {
   color: red;                /* Color the off indication red. */
+  text-align: left;
 }
 
 .KS-SH .date {
   color: white;               /* Color the date. Default is white. */
-}
-
-.KS-SH .cityState {
-  color: white;               /* Color the cityState. Default is white. */
 }
 
 .KS-SH .duration {
