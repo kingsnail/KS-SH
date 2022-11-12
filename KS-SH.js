@@ -80,6 +80,7 @@ Module.register("KS-SH", {
 		    statespan.classList.add("small", "bright", "state_off");
 		}
 		textspan.classList.add("small", "bright", "state");
+		devrow.classList.add("small", "bright", "staterow");
 		
 		statespan.innerHTML = Devs[dev].state;
 		textspan.innerHTML  = " " + Devs[dev].name + " B(" + Devs[dev].brightness + "), W(" + Devs[dev].warmth + ")";
