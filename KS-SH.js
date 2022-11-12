@@ -103,7 +103,7 @@ Module.register("KS-SH", {
 	for(var grp = 0; grp < Groups.length; grp++){
 	        var grprow = document.createElement("div");
                 var gstate = document.createElement("span");
-		var gtext  = documnet.createElement("span");
+		var gtext  = document.createElement("span");
 		
 		if (Groups[grp].state === "on"){
    		    gstate.classList.add("small", "bright", "state_on");
