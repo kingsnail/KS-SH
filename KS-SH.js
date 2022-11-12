@@ -73,7 +73,7 @@ Module.register("KS-SH", {
 
 		// Rotating the data
         // Display the lights
-	var Devs = this.Devices.devices.sort(compareDevs);
+	var Devs = this.Devices.devices.sort(this.compareDevs);
 	var Groups = this.Devices.groups;
 
 	// Creating the div's for your data items
