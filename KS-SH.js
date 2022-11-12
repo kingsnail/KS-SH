@@ -74,7 +74,7 @@ Module.register("KS-SH", {
 		// Rotating the data
         // Display the lights
 	var Devs = this.Devices.devices.sort(this.compareDevs);
-	var Groups = this.Devices.groups;
+	var Groups = this.Devices.groups.sort(this.compareDevs);
 
 	// Creating the div's for your data items
         var top = document.createElement("div");
@@ -102,12 +102,21 @@ Module.register("KS-SH", {
 	
 	for(var grp = 0; grp < Groups.length; grp++){
 	        var grprow = document.createElement("div");
+                var gstate = document.createElement("span");
+		var gtext  = documnet.createElement("span");
+		
 		if (Groups[grp].state === "on"){
-   		    grprow.classList.add("xsmall", "bright", "state_on");
+   		    gstate.classList.add("small", "bright", "state_on");
 		} else {
-		    grprow.classList.add("xsmall", "bright", "state_off");
+		    gstate.classList.add("small", "bright", "state_off");
 		}
-		grprow.innerHTML = "Group: " + Groups[grp].groupID + "(" + Groups[grp].name + "), state = " + Groups[grp].state;
+		gtext.classList.add("small", "bright", "state");
+		grprow.classList.add("small", "bright", "staterow");
+		
+		gstate.innerHTML = Groups[grp].state;
+		gtext.innerHTML  = " Group: " + Groups[grp].groupID + "(" + Groups[grp].name + ")";
+		grprow.appendChild(gstate);
+		grprow.appendChild(gtext);
 		wrapper.appendChild(grprow);
 	}
 	 	
