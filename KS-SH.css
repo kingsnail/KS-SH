@@ -15,6 +15,7 @@
 
 .KS-SH .state {
   color: white;                /* Color the text indication white. */
+  font-weight: normal;
   text-align: left;
 }
 
