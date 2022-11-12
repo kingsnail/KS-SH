@@ -3,9 +3,7 @@
  * Use any colors you want! Go to - "http://htmlcolorcodes.com/color-picker/"
  * Pick your color, copy and paste the HEX number. Example - #62FF00 = bright green.
  */
-html {
-     cursor: normal;
-}
+
 .KS-SH .header{
   color: green;               /* Header color. Default is white. */
   text-align: left;           /* Align header text. (left, center, right) */
