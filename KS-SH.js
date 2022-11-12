@@ -134,7 +134,7 @@ Module.register("KS-SH", {
 	
 	// this rotates your data
     scheduleCarousel: function() { 
-    //    console.log("Carousel of UFO fucktion!"); // uncomment to see if data is rotating (in dev console)
+        console.log("Carousel schedule called"); // uncomment to see if data is rotating (in dev console)
         this.rotateInterval = setInterval(() => {
             this.activeItem++;
             this.updateDom(this.config.animationSpeed);
@@ -144,7 +144,7 @@ Module.register("KS-SH", {
 	
 // this tells module when to update
     scheduleUpdate: function() { 
-	//console.log("KS-SH scheduleUpdate called.");
+	console.log("KS-SH scheduleUpdate called.");
         setInterval(() => {
             this.getDevices();
         }, this.config.updateInterval);
