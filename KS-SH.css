@@ -20,11 +20,13 @@
 
 .KS-SH .state_on {
   color: green;               /* Color the on indication green. */
+  font-weight: bold;
   text-align: left;
 }
 
 .KS-SH .state_off {
   color: red;                /* Color the off indication red. */
+  font-weight: bold;
   text-align: left;
 }
 
