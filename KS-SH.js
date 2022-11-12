@@ -148,8 +148,8 @@ Module.register("KS-SH", {
         setInterval(() => {
             this.getDevices();
         }, this.config.updateInterval);
-        //this.getDevices(this.config.initialLoadDelay);
-        //var self = this;
+        this.getDevices(this.config.initialLoadDelay);
+        var self = this;
     },
 	
     getDevices: function(){
@@ -160,11 +160,8 @@ Module.register("KS-SH", {
 	// this gets data from node_helper
     socketNotificationReceived: function(notification, payload) { 
         if (notification === "DEVICES_RESULT") {
-            //console.log("KS-SH: socketNotificationReceived...");
+            console.log("KS-SH: socketNotificationReceived...");
             this.processDevices(payload);
-            if (this.rotateInterval == null) {
-                this.scheduleCarousel();
-            }
             this.updateDom(this.config.animationSpeed);
         }
         this.updateDom(this.config.initialLoadDelay);
