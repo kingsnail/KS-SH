@@ -12,7 +12,7 @@ Module.register("KS-SH", {
         header: "Loading Data", // Any text you want
         maxWidth: "250px",
         rotateInterval: 300 * 1000,
-        animationSpeed: 1000, // fade in and out speed
+        animationSpeed: 10, // fade in and out speed
         initialLoadDelay: 4250,
         retryDelay: 2500,
         updateInterval: 5 * 1 * 1000, // Update every 5 seconds
@@ -131,16 +131,6 @@ Module.register("KS-SH", {
 	//console.log(this.Devices);
 	this.loaded  = true;
     },
-	
-	// this rotates your data
-    scheduleCarousel: function() { 
-        console.log("Carousel schedule called"); // uncomment to see if data is rotating (in dev console)
-        this.rotateInterval = setInterval(() => {
-            this.activeItem++;
-            this.updateDom(this.config.animationSpeed);
-        }, this.config.rotateInterval);
-    },
-	
 	
 // this tells module when to update
     scheduleUpdate: function() { 
