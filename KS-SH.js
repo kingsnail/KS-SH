@@ -134,7 +134,7 @@ Module.register("KS-SH", {
 	
 // this tells module when to update
     scheduleUpdate: function() { 
-	console.log("KS-SH scheduleUpdate called.");
+	//console.log("KS-SH scheduleUpdate called.");
         setInterval(() => {
             this.getDevices();
         }, this.config.updateInterval);
@@ -143,14 +143,14 @@ Module.register("KS-SH", {
     },
 	
     getDevices: function(){
-        console.log("KS-SH: getDevices called...");
+        //console.log("KS-SH: getDevices called...");
         this.sendSocketNotification('GET_DEVICES', this.url);
     },
 	    
 	// this gets data from node_helper
     socketNotificationReceived: function(notification, payload) { 
         if (notification === "DEVICES_RESULT") {
-            console.log("KS-SH: socketNotificationReceived...");
+            //console.log("KS-SH: socketNotificationReceived...");
             this.processDevices(payload);
             this.updateDom(this.config.animationSpeed);
         }
