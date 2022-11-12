@@ -9,6 +9,11 @@
   text-align: left;           /* Align header text. (left, center, right) */
 }
 
+.KS-SH .state {
+  color: white;                /* Color the text indication white. */
+  text-align: left;
+}
+
 .KS-SH .state_on {
   color: green;               /* Color the on indication green. */
   text-align: left;
