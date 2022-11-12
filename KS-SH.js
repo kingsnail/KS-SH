@@ -39,6 +39,16 @@ Module.register("KS-SH", {
         this.scheduleUpdate();       // <-- When the module updates (see below)
     },
 
+    compareDevs: function( a, b ) {
+        if ( a.name < b.name ){
+             return -1;
+        }
+        if ( a.name > b.name ){
+             return 1;
+        }
+        return 0;
+    },
+	
     getDom: function() {
 		
 		// creating the wrapper
@@ -63,7 +73,7 @@ Module.register("KS-SH", {
 
 		// Rotating the data
         // Display the lights
-	var Devs = this.Devices.devices;
+	var Devs = this.Devices.devices.sort(compareDevs);
 	var Groups = this.Devices.groups;
 
 	// Creating the div's for your data items
