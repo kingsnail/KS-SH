@@ -8,8 +8,6 @@ Module.register("KS-SH", {
 
     // Module config defaults.
     defaults: {
-		city: "New York",
-		state: "NY",
         useHeader: true, // false if you don't want a header
         header: "Loading Data", // Any text you want
         maxWidth: "250px",
@@ -17,8 +15,7 @@ Module.register("KS-SH", {
         animationSpeed: 1000, // fade in and out speed
         initialLoadDelay: 4250,
         retryDelay: 2500,
-        updateInterval: 10 * 1 * 1000,
-
+        updateInterval: 10 * 1 * 1000
     },
 
     getStyles: function() {
@@ -31,8 +28,6 @@ Module.register("KS-SH", {
         requiresVersion: "2.1.0",
 
         // Set locale.
-        this.url = "https://ufo-api.herokuapp.com/api/sightings/search?city=" + this.config.city + "&state=" + this.config.state + "&limit=50&skip=0";
-        this.UFO = [];
 	this.Devices = [];
         this.activeItem = 0;         // <-- starts rotation at item 0 (see Rotation below)
         this.rotateInterval = null;  // <-- sets rotation time (see below)
@@ -113,7 +108,7 @@ Module.register("KS-SH", {
 		gtext.classList.add("small", "bright", "state");
 		grprow.classList.add("small", "bright", "staterow");
 		
-		gstate.innerHTML = Groups[grp].state;
+		gstate.innerHTML = Groups[grp].state.toUpperCase();
 		gtext.innerHTML  = " Group: " + Groups[grp].groupID + "(" + Groups[grp].name + ")";
 		grprow.appendChild(gstate);
 		grprow.appendChild(gtext);
@@ -127,7 +122,6 @@ Module.register("KS-SH", {
 	// this processes your data
     processUFO: function(data) { 
         this.UFO = data; 
-    //    console.log(this.UFO); // uncomment to see if you're getting data (in dev console)
         this.loaded = true;
     },
     
@@ -150,7 +144,7 @@ Module.register("KS-SH", {
 	
 // this tells module when to update
     scheduleUpdate: function() { 
-	console.log("KS-SH scheduleUpdate called.");
+	//console.log("KS-SH scheduleUpdate called.");
         setInterval(() => {
             this.getDevices();
         }, this.config.updateInterval);
@@ -163,17 +157,10 @@ Module.register("KS-SH", {
         this.sendSocketNotification('GET_DEVICES', this.url);
     },
 	    
-	// this asks node_helper for data
-    getUFO: function() { 
-        console.log("KS-SH: getUFO called...");
-        this.sendSocketNotification('GET_UFO', this.url);
-    },
-	
-	
 	// this gets data from node_helper
     socketNotificationReceived: function(notification, payload) { 
         if (notification === "DEVICES_RESULT") {
-            console.log("KS-SH: socketNotificationReceived...");
+            //console.log("KS-SH: socketNotificationReceived...");
             this.processDevices(payload);
             if (this.rotateInterval == null) {
                 this.scheduleCarousel();
