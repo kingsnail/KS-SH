@@ -72,12 +72,20 @@ Module.register("KS-SH", {
 	    
 	for(var dev = 0; dev < Devs.length; dev++){	
 		var devrow = document.createElement("div");
+		var statespan = document.createElement("span");
+		var textspan  = document.createElement("span");
 		if (Devs[dev].state === "on"){
-            	    devrow.classList.add("small", "bright", "state_on");
+            	    statespan.classList.add("small", "bright", "state_on");
 		} else {
-		    devrow.classList.add("small", "bright", "state_off");
+		    statespan.classList.add("small", "bright", "state_off");
 		}
-            	devrow.innerHTML = Devs[dev].name + "  " + Devs[dev].state + " B(" + Devs[dev].brightness + "), W(" + Devs[dev].warmth + ")";
+		textspan.classList.add("small", "bright", "state");
+		
+		statespan.innerHTML = Devs[dev].state;
+		textspan.innerHTML  = " " + Devs[dev].name + " B(" + Devs[dev].brightness + "), W(" + Devs[dev].warmth + ")";
+            	
+		devrow.appendChild(statespan);
+		devrow.appendChild(textspan);
             	wrapper.appendChild(devrow);
 	}
 	
