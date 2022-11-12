@@ -9,6 +9,10 @@
   text-align: left;           /* Align header text. (left, center, right) */
 }
 
+.KS-SH .staterow {
+  text-align: left;
+}
+
 .KS-SH .state {
   color: white;                /* Color the text indication white. */
   text-align: left;
