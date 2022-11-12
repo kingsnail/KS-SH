@@ -148,8 +148,8 @@ Module.register("KS-SH", {
         setInterval(() => {
             this.getDevices();
         }, this.config.updateInterval);
-        this.getDevices(this.config.initialLoadDelay);
-        var self = this;
+        //this.getDevices(this.config.initialLoadDelay);
+        //var self = this;
     },
 	
     getDevices: function(){
