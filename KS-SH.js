@@ -11,11 +11,11 @@ Module.register("KS-SH", {
         useHeader: true, // false if you don't want a header
         header: "Loading Data", // Any text you want
         maxWidth: "250px",
-        rotateInterval: 30 * 1000,
+        rotateInterval: 300 * 1000,
         animationSpeed: 1000, // fade in and out speed
         initialLoadDelay: 4250,
         retryDelay: 2500,
-        updateInterval: 10 * 1 * 1000,
+        updateInterval: 5 * 1 * 1000, // Update every 5 seconds
     },
 
     getStyles: function() {
