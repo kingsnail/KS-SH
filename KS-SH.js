@@ -92,7 +92,7 @@ Module.register("KS-SH", {
 		textspan.classList.add("small", "bright", "state");
 		devrow.classList.add("small", "bright", "staterow");
 		
-		statespan.innerHTML = Devs[dev].state;
+		statespan.innerHTML = Devs[dev].state.toUpperCase();
 		textspan.innerHTML  = " " + Devs[dev].name + " B(" + Devs[dev].brightness + "), W(" + Devs[dev].warmth + ")";
             	
 		devrow.appendChild(statespan);
