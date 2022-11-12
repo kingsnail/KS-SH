@@ -15,7 +15,7 @@ Module.register("KS-SH", {
         animationSpeed: 1000, // fade in and out speed
         initialLoadDelay: 4250,
         retryDelay: 2500,
-        updateInterval: 10 * 1 * 1000
+        updateInterval: 10 * 1 * 1000,
     },
 
     getStyles: function() {
