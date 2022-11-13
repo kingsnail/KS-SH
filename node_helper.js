@@ -54,6 +54,7 @@ module.exports = NodeHelper.create({
         const pythonProcess = spawn('python',["/home/mark/MagicMirror/modules/KS-SH/python/tradfri-lights.py", "-a power -l " + d + " -v off"]);
 	pythonProcess.stdout.on('data', function (data) { console.log("devstr=" + data.toString());
 							  cb(data.toString());
+							});
     },
 
     socketNotificationReceived: function(notification, payload) {
