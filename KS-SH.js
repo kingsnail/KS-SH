@@ -93,8 +93,7 @@ Module.register("KS-SH", {
             	
 		const d = Devs[dev].bulbID;
 		const s = Devs[dev].state;
-		statespan.onmousedown = function(){console.log("Mouse: " + d + ", " + s); 
-						                self.setDevice(d, s);};
+		statespan.onmousedown = self.setDevice(d, s);
 		
 		devrow.appendChild(statespan);
 		devrow.appendChild(textspan);
