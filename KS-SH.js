@@ -91,7 +91,9 @@ Module.register("KS-SH", {
 		statespan.innerHTML = Devs[dev].state.toUpperCase();
 		textspan.innerHTML  = " " + Devs[dev].name + " B(" + Devs[dev].brightness + "), W(" + Devs[dev].warmth + ")";
             	
-		statespan.onmousedown = function(){this.setDevice(self.Devs[dev].bulbID, self.Devs[dev].state)};
+		const d = Devs[dev].bulbID;
+		const s = Devs[dev].state;
+		statespan.onmousedown = function(){this.setDevice(b, s)};
 		
 		devrow.appendChild(statespan);
 		devrow.appendChild(textspan);
