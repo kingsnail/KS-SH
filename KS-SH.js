@@ -32,6 +32,7 @@ Module.register("KS-SH", {
         this.activeItem = 0;         // <-- starts rotation at item 0 (see Rotation below)
         this.rotateInterval = null;  // <-- sets rotation time (see below)
         this.scheduleUpdate();       // <-- When the module updates (see below)
+	var self = this;
     },
 
     compareDevs: function( a, b ) {
@@ -90,7 +91,7 @@ Module.register("KS-SH", {
 		statespan.innerHTML = Devs[dev].state.toUpperCase();
 		textspan.innerHTML  = " " + Devs[dev].name + " B(" + Devs[dev].brightness + "), W(" + Devs[dev].warmth + ")";
             	
-		statespan.onmousedown = function(){this.setDevice(this.Devs[dev].bulbID, this.Devs[dev].state)};
+		statespan.onmousedown = function(){this.setDevice(self.Devs[dev].bulbID, self.Devs[dev].state)};
 		
 		devrow.appendChild(statespan);
 		devrow.appendChild(textspan);
@@ -140,7 +141,6 @@ Module.register("KS-SH", {
             this.getDevices();
         }, this.config.updateInterval);
         this.getDevices(this.config.initialLoadDelay);
-        var self = this;
     },
 	
     getDevices: function(){
