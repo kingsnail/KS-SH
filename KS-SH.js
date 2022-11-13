@@ -93,7 +93,7 @@ Module.register("KS-SH", {
             	
 		const d = Devs[dev].bulbID;
 		const s = Devs[dev].state;
-		statespan.onclick = this.setDevice(d, s);
+		statespan.onclick = function(){console.log("Click " + d);}
 		
 		devrow.appendChild(statespan);
 		devrow.appendChild(textspan);
