@@ -51,9 +51,11 @@ module.exports = NodeHelper.create({
 	    this.getDevices(this.updatedDevices);
 	}
 	if (notification === 'SET_DEVICE_ON') {
-	    this.setDeviceOn(payload);
+	        console.log("SET_DEVICE_ON " + payload);
+		this.setDeviceOn(payload);
 	}
 	if (notification === 'SET_DEVICE_OFF') {
+	    console.log("SET_DEVICE_OFF " + payload);
 	    this.setDeviceOff(payload);
 	}
     }
