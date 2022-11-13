@@ -163,8 +163,8 @@ Module.register("KS-SH", {
             this.processDevices(payload);
             this.updateDom(this.config.animationSpeed);
         }
-        if (notification === "SET_DEVICE_RESPONE") {
-            console.log("SET_DEVICE_RESPONE: " + payload);
+        if (notification === "SET_DEVICE_RESPONSE") {
+            console.log("SET_DEVICE_RESPONSE: " + payload);
         }
         this.updateDom(this.config.initialLoadDelay);
     },
