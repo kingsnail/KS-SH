@@ -42,7 +42,7 @@ module.exports = NodeHelper.create({
  
     setDeviceOn: function(cb, d) {
 	console.log("Turn " + d + " on.");
-        const pythonProcess1 = spawn('python',["/home/mark/MagicMirror/modules/KS-SH/python/tradfri-status.py"]);
+        const pythonProcess1 = spawn('python',["/home/mark/MagicMirror/modules/KS-SH/python/tradfri-lights.py"]);
 	pythonProcess1.stdout.on('data', function (data) { console.log("data=" + data.toString());
 							  cb(data.toString());							 
 						         });
