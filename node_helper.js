@@ -22,6 +22,11 @@ module.exports = NodeHelper.create({
 	//console.log(devs);
         self.sendSocketNotification('DEVICES_RESULT', devs);
     },
+
+    notifyDevCmd: function(r){
+        self.sendSocketNotification('SET_DEVICE_RESPONE', r);
+    },
+	
 	
     getDevices: function(callback) {    
 	var devstr = "Test";
@@ -39,7 +44,7 @@ module.exports = NodeHelper.create({
 	console.log("Turn " + d + " on.");
         const pythonProcess = spawn('python',["/home/mark/MagicMirror/modules/KS-SH/python/tradfri-lights.py", "-a power -l " + d + " -v on"]);
 	pythonProcess.stdout.on('data', function (data) { console.log("devstr=" + data.toString());
-							  callback(data.toString());							 
+							  notifyDevCmd(data.toString());							 
 						        });
 
     },
@@ -48,7 +53,7 @@ module.exports = NodeHelper.create({
 	console.log("Turn " + d + " off.");
         const pythonProcess = spawn('python',["/home/mark/MagicMirror/modules/KS-SH/python/tradfri-lights.py", "-a power -l " + d + " -v off"]);
 	pythonProcess.stdout.on('data', function (data) { console.log("devstr=" + data.toString());
-							  callback(data.toString());
+							  notifyDevCmd(data.toString());
     },
 
     socketNotificationReceived: function(notification, payload) {
