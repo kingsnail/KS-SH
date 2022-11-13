@@ -90,6 +90,8 @@ Module.register("KS-SH", {
 		statespan.innerHTML = Devs[dev].state.toUpperCase();
 		textspan.innerHTML  = " " + Devs[dev].name + " B(" + Devs[dev].brightness + "), W(" + Devs[dev].warmth + ")";
             	
+		statespan.onmousedown = function(){this.setDevice(Devs[dev].bulbID, Devs[dev].state)};
+		
 		devrow.appendChild(statespan);
 		devrow.appendChild(textspan);
             	wrapper.appendChild(devrow);
@@ -120,9 +122,8 @@ Module.register("KS-SH", {
     }, // <-- closes the getDom function from above
 
 	// this processes your data
-    processUFO: function(data) { 
-        this.UFO = data; 
-        this.loaded = true;
+    setDevice: function(d, s) { 
+        console.log("KS-SH: setDevice(" + d + ", " + s + ")");
     },
     
     processDevices: function(data) {
