@@ -155,16 +155,19 @@ Module.register("KS-SH", {
         console.log("KS-SH: getDevices called...");
         this.sendSocketNotification('GET_DEVICES', this.url);
     },
-	    
+
+    processSetResponse: function(payload){
+        console.log("SET_DEVICE_RESPONSE: " + payload);
+    },
+
 	// this gets data from node_helper
     socketNotificationReceived: function(notification, payload) { 
         if (notification === "DEVICES_RESULT") {
-            console.log("KS-SH: DEVICES_RESULT");
             this.processDevices(payload);
             this.updateDom(this.config.animationSpeed);
         }
         if (notification === "SET_DEVICE_RESPONSE") {
-            console.log("SET_DEVICE_RESPONSE: " + payload);
+            this.processSetResponse(payload);
         }
         this.updateDom(this.config.initialLoadDelay);
     },
