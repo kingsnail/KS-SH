@@ -24,6 +24,7 @@ module.exports = NodeHelper.create({
     },
 
     notifyDevCmd: function(r){
+	console.log("Responsing with " + r);
         self.sendSocketNotification('SET_DEVICE_RESPONSE', r);
     },
 	
