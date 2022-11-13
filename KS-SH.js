@@ -159,7 +159,7 @@ Module.register("KS-SH", {
 	// this gets data from node_helper
     socketNotificationReceived: function(notification, payload) { 
         if (notification === "DEVICES_RESULT") {
-            //console.log("KS-SH: socketNotificationReceived...");
+            console.log("KS-SH: DEVICES_RESULT");
             this.processDevices(payload);
             this.updateDom(this.config.animationSpeed);
         }
