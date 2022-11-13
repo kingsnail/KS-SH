@@ -163,6 +163,9 @@ Module.register("KS-SH", {
             this.processDevices(payload);
             this.updateDom(this.config.animationSpeed);
         }
+        if (notification === "SET_DEVICE_ON") {
+            console.log("SET_DEVICE_ON: " + payload);
+        }
         this.updateDom(this.config.initialLoadDelay);
     },
 });
