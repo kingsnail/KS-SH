@@ -40,20 +40,20 @@ module.exports = NodeHelper.create({
 						        });
     },
  
-    setDeviceOn: function(d) {
+    setDeviceOn: function(cb, d) {
 	console.log("Turn " + d + " on.");
         const pythonProcess = spawn('python',["/home/mark/MagicMirror/modules/KS-SH/python/tradfri-lights.py", "-a power -l " + d + " -v on"]);
 	pythonProcess.stdout.on('data', function (data) { console.log("devstr=" + data.toString());
-							  notifyDevCmd(data.toString());							 
+							  cb(data.toString());							 
 						        });
 
     },
 
-    setDeviceOff: function(d) {
+    setDeviceOff: function(cb, d) {
 	console.log("Turn " + d + " off.");
         const pythonProcess = spawn('python',["/home/mark/MagicMirror/modules/KS-SH/python/tradfri-lights.py", "-a power -l " + d + " -v off"]);
 	pythonProcess.stdout.on('data', function (data) { console.log("devstr=" + data.toString());
-							  notifyDevCmd(data.toString());
+							  cb(data.toString());
     },
 
     socketNotificationReceived: function(notification, payload) {
@@ -63,11 +63,11 @@ module.exports = NodeHelper.create({
 	}
 	if (notification === 'SET_DEVICE_ON') {
 	        console.log("SET_DEVICE_ON " + payload);
-		this.setDeviceOn(payload);
+		this.setDeviceOn(this.notifyDevCmd, payload);
 	}
 	if (notification === 'SET_DEVICE_OFF') {
 	    console.log("SET_DEVICE_OFF " + payload);
-	    this.setDeviceOff(payload);
+	    this.setDeviceOff(this.notifyDevCmd, payload);
 	}
     }
 });
