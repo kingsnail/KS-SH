@@ -152,7 +152,7 @@ Module.register("KS-SH", {
     },
 	
     getDevices: function(){
-        //console.log("KS-SH: getDevices called...");
+        console.log("KS-SH: getDevices called...");
         this.sendSocketNotification('GET_DEVICES', this.url);
     },
 	    
