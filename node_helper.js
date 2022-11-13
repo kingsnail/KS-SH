@@ -47,6 +47,7 @@ module.exports = NodeHelper.create({
     },
 
     socketNotificationReceived: function(notification, payload) {
+        console.log("socketNotificationReceived: " + notification);
 	if (notification === 'GET_DEVICES') {
 	    this.getDevices(this.updatedDevices);
 	}
