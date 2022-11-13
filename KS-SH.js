@@ -128,10 +128,10 @@ Module.register("KS-SH", {
     setDevice: function(d, s) { 
 	if ( s === "on" ) {
              console.log("KS-SH: setDevice(" + d + ", " + s + ") Turn Off");
-             this.sendSocketNotification('SET_DEVICE_OFF', d);
+             self.sendSocketNotification('SET_DEVICE_OFF', d);
 	} else {
              console.log("KS-SH: setDevice(" + d + ", " + s + ") Turn On");
-             this.sendSocketNotification('SET_DEVICE_ON', d);
+             self.sendSocketNotification('SET_DEVICE_ON', d);
 	}
     },
     
