@@ -36,26 +36,25 @@ module.exports = NodeHelper.create({
 						        });
     },
  
-    getUFO: function(url) {
-        request({
-            url: url,
-            method: 'GET'
-        }, (error, response, body) => {
-            if (!error && response.statusCode == 200) {
-                var result = JSON.parse(body).sightings; // sightings is from JSON data
-   		    console.log(response.statusCode + result); // uncomment to see in terminal
-                    this.sendSocketNotification('UFO_RESULT', result);
-		
-            }
-        });
+    setDeviceOn: function(d) {
+	console.log("Turn " + d + " on.");
+        const pythonProcess = spawn('python',["/home/mark/MagicMirror/modules/KS-SH/python/tradfri-lights.py", "-a power -l " + d + " -v on"]);
+    },
+
+    setDeviceOff: function(d) {
+	console.log("Turn " + d + " off.");
+        const pythonProcess = spawn('python',["/home/mark/MagicMirror/modules/KS-SH/python/tradfri-lights.py", "-a power -l " + d + " -v off"]);
     },
 
     socketNotificationReceived: function(notification, payload) {
-        if (notification === 'GET_UFO') {
-            this.getUFO(payload);
-        }
 	if (notification === 'GET_DEVICES') {
 	    this.getDevices(this.updatedDevices);
+	}
+	if (notification === 'SET_DEVICE_ON') {
+	    this.setDeviceOn(payload);
+	}
+	if (notification === 'SET_DEVICE_OFF') {
+	    this.setDeviceOff(payload);
 	}
     }
 });
