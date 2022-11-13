@@ -35,28 +35,27 @@ module.exports = NodeHelper.create({
 	// devstr ='{"devices":[{"bulbID":"65539","name":"Nazanins Light","brightness": "3","warmth":"NAN%","state":"on"},{"bulbID":"65538","name":"Bedside A","brightness":"3","warmth":"100.0%","state":"off"}],"groups":[{"groupID":"131077","name":"Guest Room","state":"off"},{"groupID":"131075","name":"Master Bedroom","state":"off"}]}';
 	//console.log("Calling Python...");
         const pythonProcess = spawn('python',["/home/mark/MagicMirror/modules/KS-SH/python/tradfri-status.py"]);
-	pythonProcess.stdout.on('data', function (data) { console.log("devstr=" + data.toString());
-							  var result = JSON.parse(data.toString());
+	pythonProcess.stdout.on('data', function (data) { var result = JSON.parse(data.toString());
 							  callback(result);							 
 						        });
     },
  
     setDeviceOn: function(cb, d) {
 	console.log("Turn " + d + " on.");
-        const pythonProcess = spawn('python',["/home/mark/MagicMirror/modules/KS-SH/python/tradfri-lights.py", "-a power -l " + d + " -v on"]);
-	pythonProcess.stdout.on('data', function (data) { console.log("devstr=" + data.toString());
+        const pythonProcess1 = spawn('python',["/home/mark/MagicMirror/modules/KS-SH/python/tradfri-lights.py", "-a power -l " + d + " -v on"]);
+	pythonProcess1.stdout.on('data', function (data) { console.log("data=" + data.toString());
 							  cb(data.toString());							 
-						        });
+						         });
 
     },
 
     setDeviceOff: function(cb, d) {
 	console.log("Turn " + d + " off.");
-        const pythonProcess = spawn('python',["/home/mark/MagicMirror/modules/KS-SH/python/tradfri-lights.py", "-a power -l " + d + " -v off"]);
-	pythonProcess.stdout.on('data', function (data) { console.log("devstr=" + data.toString());
-							  cb(data.toString());
-							});
-    },
+        const pythonProcess2 = spawn('python',["/home/mark/MagicMirror/modules/KS-SH/python/tradfri-lights.py", "-a power -l " + d + " -v off"]);
+	pythonProcess2.stdout.on('data', function (data) { console.log("data=" + data.toString());
+			  				   cb(data.toString());
+							 });
+    }, 
 
     socketNotificationReceived: function(notification, payload) {
         console.log("socketNotificationReceived: " + notification);
