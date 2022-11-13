@@ -90,7 +90,7 @@ Module.register("KS-SH", {
 		statespan.innerHTML = Devs[dev].state.toUpperCase();
 		textspan.innerHTML  = " " + Devs[dev].name + " B(" + Devs[dev].brightness + "), W(" + Devs[dev].warmth + ")";
             	
-		statespan.onmousedown = function(){this.setDevice(Devs[dev].bulbID, Devs[dev].state)};
+		statespan.onmousedown = function(){this.setDevice(Devs[dev].name, Devs[dev].state)};
 		
 		devrow.appendChild(statespan);
 		devrow.appendChild(textspan);
