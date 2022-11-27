@@ -37,7 +37,7 @@ def tradfri_get_devices(hubip, apiuser, apikey):
     print('get_devices called')
     api = '{} -m get -u "{}" -k "{}" "{}" -B {} 2> /dev/null' .format(coap, apiuser, apikey,
                                                                       tradfriHub, timeout)
-
+    print(api)
     if os.path.exists(coap):
         result = os.popen(api)
     else:
