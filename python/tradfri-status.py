@@ -71,7 +71,7 @@ def main():
 
     time.sleep(.5)
     for sceneid in tqdm(range(len(scenes)), desc='Tradfri scenes', unit='scene'):
-        print('sceneid' + sceneid)
+        print('sceneid' + str(sceneid))
         scenegroup.append(tradfriStatus.tradfri_get_scene(hubip, apiuser, apikey,
                                                           str(scenes[sceneid])))
         
