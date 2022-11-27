@@ -114,20 +114,6 @@ def main():
     print('],')
     
     print('"scenes": [')
-    firstitem = True
-    print(scenegroup)
-    for _ in range(len(scenegroup)):
-        if firstitem:
-            print('{')
-            firstitem = False
-        else: 
-            print(',{')
-        if scenegroup[_]["5850"] == 0:
-            print('\t"sceneID" : "' + str(scenegroup[_]["9003"]) + '",\n\t"name" : "' + scenegroup[_]["9001"] + '",\n\t"state" : "off"')
-        else:
-            print('\t"sceneID" : "' + str(scenegroup[_]["9003"]) + '",\n\t"name" : "' + scenegroup[_]["9001"] + '",\n\t"state" : "on"')
-        print('}')
-    
     print(']')
     
     print('}')
