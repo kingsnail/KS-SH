@@ -140,8 +140,8 @@ Module.register("KS-SH", {
     
     processDevices: function(data) {
         this.Devices = data;
-        //console.log("KS-SH: Devices Updated");
-	//console.log(this.Devices);
+        console.log("KS-SH: Devices Updated");
+	console.log(this.Devices);
 	this.loaded  = true;
     },
 	
