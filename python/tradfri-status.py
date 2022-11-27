@@ -52,7 +52,7 @@ def main():
     #print('[ ] Tradfri: acquiring all Tradfri devices, please wait ...')
     devices = tradfriStatus.tradfri_get_devices(hubip, apiuser, apikey)
     groups = tradfriStatus.tradfri_get_groups(hubip, apiuser, apikey)
-    scenes = tradfriStatus.tradfri_get_scenes(hubip, apiuser, apikey)
+    
     for deviceid in tqdm(range(len(devices)), desc='Tradfri devices', unit=' devices'):
         lightbulb.append(tradfriStatus.tradfri_get_lightbulb(hubip, apiuser, apikey,
                                                              str(devices[deviceid])))
@@ -64,17 +64,6 @@ def main():
     for groupid in tqdm(range(len(groups)), desc='Tradfri groups', unit=' group'):
         lightgroup.append(tradfriStatus.tradfri_get_group(hubip, apiuser, apikey,
                                                           str(groups[groupid])))
-
-    time.sleep(.5)
-    for sceneid in tqdm(range(len(scenes)), desc='Tradfri scenes', unit=' scene'):
-        scl = tradfriStatus.tradfri_get_scene(hubip, apiuser, apikey, str(scenes[sceneid]))
-        print('scene ' + str(scenes[sceneid]) + ' = ' + str(scl))
-        if scl:
-            for sc in range(len(scl)):
-                print('Fetching scene ' + str(scl[sc]))
-                scn = tradfriStatus.tradfri_get_scene(hubip, apiuser, apikey, str(scl[sc]))
-                print('  scene = ' + str(scn))
-                #scenegroup.append(scl)
             
     print('[+] Tradfri: device information gathered')
     print('===========================================================\n')
@@ -116,11 +105,7 @@ def main():
         else:
             print('\t"groupID" : "' + str(lightgroup[_]["9003"]) + '",\n\t"name" : "' + lightgroup[_]["9001"] + '",\n\t"state" : "on"')
         print('}')
-    print('],')
-    
-    print('"scenes": [')
     print(']')
-    
     print('}')
 
 if __name__ == "__main__":
