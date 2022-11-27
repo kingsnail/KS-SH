@@ -86,3 +86,31 @@ def tradfri_get_group(hubip, apiuser, apikey, groupid):
         sys.exit(1)
 
     return json.loads(result.read().strip('\n').split('\n')[-1])
+
+def tradfri_get_scenes(hubip, apiuser, apikey):
+    """ function for getting tradfri scenes """
+    tradfriHub = 'coaps://{}:5684/15005'.format(hubip)
+    api = '{} -m get -u "{}" -k "{}" "{}" -B {} 2> /dev/null' .format(coap, apiuser, apikey,
+                                                                      tradfriHub, timeout)
+
+    if os.path.exists(coap):
+        result = os.popen(api)
+    else:
+        sys.stderr.write('[-] libcoap: could not find libcoap.\n')
+        sys.exit(1)
+
+    return json.loads(result.read().strip('\n').split('\n')[-1])
+
+def tradfri_get_scene(hubip, apiuser, apikey, sceneid):
+    """ function for getting tradfri group information """
+    tradfriHub = 'coaps://{}:5684/15005/{}'.format(hubip, sceneid)
+    api = '{} -m get -u "{}" -k "{}" "{}" -B {} 2> /dev/null' .format(coap, apiuser, apikey,
+                                                                      tradfriHub, timeout)
+
+    if os.path.exists(coap):
+        result = os.popen(api)
+    else:
+        sys.stderr.write('[-] libcoap: could not find libcoap.\n')
+        sys.exit(1)
+
+    return json.loads(result.read().strip('\n').split('\n')[-1])
