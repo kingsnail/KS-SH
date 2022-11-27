@@ -110,5 +110,5 @@ def tradfri_get_scene(hubip, apiuser, apikey, sceneid):
     else:
         sys.stderr.write('[-] libcoap: could not find libcoap.\n')
         sys.exit(1)
-
+    print('scene=' + json.loads(result.read().strip('\n').split('\n')[-1]))
     return json.loads(result.read().strip('\n').split('\n')[-1])
