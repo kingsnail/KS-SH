@@ -70,7 +70,9 @@ def main():
         scl = tradfriStatus.tradfri_get_scene(hubip, apiuser, apikey, str(scenes[sceneid]))
         print('scene ' + str(scenes[sceneid]) + ' = ' + str(scl))
         if scl:
-            scenegroup.append(scl)
+            for sc in range(len(scl)):
+                print('Fetching scene ' + str(scl[sc]))
+                #scenegroup.append(scl)
             
     print('[+] Tradfri: device information gathered')
     print('===========================================================\n')
