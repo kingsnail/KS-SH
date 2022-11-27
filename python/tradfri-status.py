@@ -49,7 +49,7 @@ def main():
     lightgroup = []
     scenegroup = []
 
-    #print('[ ] Tradfri: acquiring all Tradfri devices, please wait ...')
+    print('[ ] Tradfri: acquiring all Tradfri devices, please wait ...')
     devices = tradfriStatus.tradfri_get_devices(hubip, apiuser, apikey)
     groups = tradfriStatus.tradfri_get_groups(hubip, apiuser, apikey)
     scenes = tradfriStatus.tradfri_get_scenes(hubip, apiuser, apikey)
@@ -71,8 +71,8 @@ def main():
         scenegroup.append(tradfriStatus.tradfri_get_scene(hubip, apiuser, apikey,
                                                           str(scenes[sceneid])))
         
-    #print('[+] Tradfri: device information gathered')
-    #print('===========================================================\n')
+    print('[+] Tradfri: device information gathered')
+    print('===========================================================\n')
     print('{ "devices": [')
     firstitem = True
     for _ in range(len(lightbulb)):
