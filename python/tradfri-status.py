@@ -118,6 +118,7 @@ def main():
     
     print('"scenes": : [')
     firstitem = True
+    print(scenegroup)
     for _ in range(len(scenegroup)):
         if firstitem:
             print('{')
