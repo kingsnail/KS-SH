@@ -34,17 +34,13 @@ timeout = 5
 def tradfri_get_devices(hubip, apiuser, apikey):
     """ function for getting all tradfri device ids """
     tradfriHub = 'coaps://{}:5684/15001' .format(hubip)
-    print('get_devices called')
     api = '{} -m get -u "{}" -k "{}" "{}" -B {} 2> /dev/null' .format(coap, apiuser, apikey,
                                                                       tradfriHub, timeout)
-    print(api)
     if os.path.exists(coap):
         result = os.popen(api)
     else:
         sys.stderr.write('[-] libcoap: could not find libcoap.\n')
         sys.exit(1)
-    print('result=')
-    print(result.read())
     return json.loads(result.read().strip('\n').split('\n')[-1])
 
 def tradfri_get_lightbulb(hubip, apiuser, apikey, deviceid):
