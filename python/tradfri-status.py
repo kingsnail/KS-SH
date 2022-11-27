@@ -65,8 +65,8 @@ def main():
         lightgroup.append(tradfriStatus.tradfri_get_group(hubip, apiuser, apikey,
                                                           str(groups[groupid])))
             
-    print('[+] Tradfri: device information gathered')
-    print('===========================================================\n')
+    #print('[+] Tradfri: device information gathered')
+    #print('===========================================================\n')
     print('{ "devices": [')
     firstitem = True
     for _ in range(len(lightbulb)):
