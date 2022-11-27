@@ -47,10 +47,12 @@ def main():
 
     lightbulb = []
     lightgroup = []
+    scenegroup = []
 
     #print('[ ] Tradfri: acquiring all Tradfri devices, please wait ...')
     devices = tradfriStatus.tradfri_get_devices(hubip, apiuser, apikey)
     groups = tradfriStatus.tradfri_get_groups(hubip, apiuser, apikey)
+    scenes = tradfriStatus.tradfri_get_scenes(hubip, apiuser, apikey)
 
     for deviceid in tqdm(range(len(devices)), desc='Tradfri devices', unit=' devices'):
         lightbulb.append(tradfriStatus.tradfri_get_lightbulb(hubip, apiuser, apikey,
@@ -64,6 +66,11 @@ def main():
         lightgroup.append(tradfriStatus.tradfri_get_group(hubip, apiuser, apikey,
                                                           str(groups[groupid])))
 
+    time.sleep(.5)
+    for sceneid in tqdm(range(len(scenes)), desc='Tradfri scenes', unit='scene'):
+        scenegroup.append(tradfriStatus.tradfri_get_scene(hubip, apiuser, apikey,
+                                                          str(scenes[sceneid])))
+        
     #print('[+] Tradfri: device information gathered')
     #print('===========================================================\n')
     print('{ "devices": [')
@@ -104,7 +111,24 @@ def main():
         else:
             print('\t"groupID" : "' + str(lightgroup[_]["9003"]) + '",\n\t"name" : "' + lightgroup[_]["9001"] + '",\n\t"state" : "on"')
         print('}')
+    print('],')
+    
+    print('"scenes": : [')
+    firstitem = True
+    for _ in range(len(scenegroup)):
+        if firstitem:
+            print('{')
+            firstitem = False
+        else: 
+            print(',{')
+        if scenegroup[_]["5850"] == 0:
+            print('\t"sceneID" : "' + str(scenegroup[_]["9003"]) + '",\n\t"name" : "' + scenegroup[_]["9001"] + '",\n\t"state" : "off"')
+        else:
+            print('\t"sceneID" : "' + str(scenegroup[_]["9003"]) + '",\n\t"name" : "' + scenegroup[_]["9001"] + '",\n\t"state" : "on"')
+        print('}')
+    
     print(']')
+    
     print('}')
 
 if __name__ == "__main__":
