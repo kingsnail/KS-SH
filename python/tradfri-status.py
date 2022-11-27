@@ -69,7 +69,7 @@ def main():
     for sceneid in tqdm(range(len(scenes)), desc='Tradfri scenes', unit=' scene'):
         scl = tradfriStatus.tradfri_get_scene(hubip, apiuser, apikey, str(scenes[sceneid]))
         if not scl:
-            scenegroup.append(sc)
+            scenegroup.append(scl)
             
     print('[+] Tradfri: device information gathered')
     print('===========================================================\n')
