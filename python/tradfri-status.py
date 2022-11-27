@@ -50,8 +50,11 @@ def main():
     scenegroup = []
 
     print('[ ] Tradfri: acquiring all Tradfri devices, please wait ...')
+    print('...devices')
     devices = tradfriStatus.tradfri_get_devices(hubip, apiuser, apikey)
+    print('...groups')
     groups = tradfriStatus.tradfri_get_groups(hubip, apiuser, apikey)
+    print('...scenes')
     scenes = tradfriStatus.tradfri_get_scenes(hubip, apiuser, apikey)
 
     for deviceid in tqdm(range(len(devices)), desc='Tradfri devices', unit=' devices'):
