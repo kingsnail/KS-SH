@@ -44,7 +44,7 @@ def tradfri_get_devices(hubip, apiuser, apikey):
         sys.stderr.write('[-] libcoap: could not find libcoap.\n')
         sys.exit(1)
     print('result=')
-    print(result)
+    print(result.read())
     return json.loads(result.read().strip('\n').split('\n')[-1])
 
 def tradfri_get_lightbulb(hubip, apiuser, apikey, deviceid):
