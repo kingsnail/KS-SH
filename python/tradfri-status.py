@@ -49,14 +49,10 @@ def main():
     lightgroup = []
     scenegroup = []
 
-    print('[ ] Tradfri: acquiring all Tradfri devices, please wait ...')
-    print('...devices')
+    #print('[ ] Tradfri: acquiring all Tradfri devices, please wait ...')
     devices = tradfriStatus.tradfri_get_devices(hubip, apiuser, apikey)
-    print('...groups')
     groups = tradfriStatus.tradfri_get_groups(hubip, apiuser, apikey)
-    print('...scenes')
     scenes = tradfriStatus.tradfri_get_scenes(hubip, apiuser, apikey)
-    print('scenes=' + str(scenes))
     for deviceid in tqdm(range(len(devices)), desc='Tradfri devices', unit=' devices'):
         lightbulb.append(tradfriStatus.tradfri_get_lightbulb(hubip, apiuser, apikey,
                                                              str(devices[deviceid])))
@@ -70,7 +66,8 @@ def main():
                                                           str(groups[groupid])))
 
     time.sleep(.5)
-    for sceneid in tqdm(range(len(scenes)), desc='Tradfri scenes', unit='scene'):
+    for sceneid in tqdm(range(len(scenes)), desc='Tradfri scenes', unit=' scene'):
+        print('appending ' + str(scenes[sceneid]))
         scenegroup.append(tradfriStatus.tradfri_get_scene(hubip, apiuser, apikey,
                                                           str(scenes[sceneid])))
         
