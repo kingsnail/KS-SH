@@ -67,7 +67,6 @@ def main():
 
     time.sleep(.5)
     for sceneid in tqdm(range(len(scenes)), desc='Tradfri scenes', unit=' scene'):
-        print('appending ' + str(scenes[sceneid]))
         scenegroup.append(tradfriStatus.tradfri_get_scene(hubip, apiuser, apikey,
                                                           str(scenes[sceneid])))
         
@@ -113,9 +112,8 @@ def main():
         print('}')
     print('],')
     
-    print('"scenes": : [')
+    print('"scenes": [')
     firstitem = True
-    print(lightgroup)
     print(scenegroup)
     for _ in range(len(scenegroup)):
         if firstitem:
