@@ -56,6 +56,10 @@ module.exports = NodeHelper.create({
 	 var dev = JSON.parse(d);
 	 const pythonProcessSD1 = spawn('python',["/home/mark/MagicMirror/modules/KS-SH/python/tradfri-lights.py","-a", "power", "-l", dev.device, "-v", dev.state]);
 	 pythonProcessSD1.stdout.on('data', function (data) { cb(data.toString()); });
+	 const pythonProcessSD2 = spawn('python',["/home/mark/MagicMirror/modules/KS-SH/python/tradfri-lights.py","-a", "brightness", "-l", dev.device, "-v", dev.bright]);
+	 pythonProcessSD2.stdout.on('data', function (data) { cb(data.toString()); });
+	 const pythonProcessSD3 = spawn('python',["/home/mark/MagicMirror/modules/KS-SH/python/tradfri-lights.py","-a", "color", "-l", dev.device, "-v", dev.color]);
+	 pythonProcessSD3.stdout.on('data', function (data) { cb(data.toString()); });
     },
 	
     socketNotificationReceived: function(notification, payload) {
