@@ -145,11 +145,13 @@ Module.register("KS-SH", {
 		const pl = presets;
 		pname.addEventListener("click", ()=>{this.setScene(pp, pl)}, false);
 		prow.appendChild(pname);
-		for(l = 0; l < presets[p].lights.length; l++){
-  		    var pdetails = document.createElement("span");
-  		    pdetails.innerHTML = "(" + presets[p].lights[l].id + ", " + presets[p].lights[l].state+ ", " + presets[p].lights[l].brt + ", " + presets[p].lights[l].color +")";
-  		    pdetails.classList.add("small", "bright");
-	            prow.appendChild(pdetails);
+		if(this.config.showPresetDetails){
+		    for(l = 0; l < presets[p].lights.length; l++){
+  		        var pdetails = document.createElement("span");
+  		        pdetails.innerHTML = "(" + presets[p].lights[l].id + ", " + presets[p].lights[l].state+ ", " + presets[p].lights[l].brt + ", " + presets[p].lights[l].color +")";
+  		        pdetails.classList.add("small", "bright");
+	                prow.appendChild(pdetails);
+		    }
 		}
 		wrapper.appendChild(prow);
 	}
