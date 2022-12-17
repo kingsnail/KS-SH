@@ -16,6 +16,13 @@ Module.register("KS-SH", {
         initialLoadDelay: 4250,
         retryDelay: 2500,
         updateInterval: 5 * 1 * 1000, // Update every 5 seconds
+	presets: [
+		    {scene: "Scene A",
+		     lights: []
+		    },
+		    {scene: "Scene B",
+		     lights: []
+		]
     },
 
     getStyles: function() {
@@ -100,26 +107,33 @@ Module.register("KS-SH", {
             	wrapper.appendChild(devrow);
 	}
 	
-	for(var grp = 0; grp < Groups.length; grp++){
-	        var grprow = document.createElement("div");
-                var gstate = document.createElement("span");
-		var gtext  = document.createElement("span");
+	//for(var grp = 0; grp < Groups.length; grp++){
+	//        var grprow = document.createElement("div");
+        //        var gstate = document.createElement("span");
+	//	var gtext  = document.createElement("span");
 		
-		if (Groups[grp].state === "on"){
-   		    gstate.classList.add("small", "bright", "state_on");
-		} else {
-		    gstate.classList.add("small", "bright", "state_off");
-		}
-		gtext.classList.add("small", "bright", "state");
-		grprow.classList.add("small", "bright", "staterow");
-		
-		gstate.innerHTML = Groups[grp].state.toUpperCase();
-		gtext.innerHTML  = " Group: " + Groups[grp].groupID + "(" + Groups[grp].name + ")";
-		grprow.appendChild(gstate);
-		grprow.appendChild(gtext);
-		wrapper.appendChild(grprow);
+	//	if (Groups[grp].state === "on"){
+   	//	    gstate.classList.add("small", "bright", "state_on");
+	//	} else {
+	//	    gstate.classList.add("small", "bright", "state_off");
+	//	}
+	//	gtext.classList.add("small", "bright", "state");
+	//	grprow.classList.add("small", "bright", "staterow");
+	//	
+	//	gstate.innerHTML = Groups[grp].state.toUpperCase();
+	//	gtext.innerHTML  = " Group: " + Groups[grp].groupID + "(" + Groups[grp].name + ")";
+	//	grprow.appendChild(gstate);
+	//	grprow.appendChild(gtext);
+	//	wrapper.appendChild(grprow);
+	//}
+	
+	var presets = this.config.presets;
+	for(var p = 0; p < presets.length; p++){
+		var prow = document.createElement("div");
+		prow.classList.add("small", "bright");
+		prow.innerHTML = presets[p].scene;
+		wrapper.appendChilnd(prow);
 	}
-	 	
         return wrapper;
 		
     }, // <-- closes the getDom function from above
