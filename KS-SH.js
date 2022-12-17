@@ -42,6 +42,7 @@ Module.register("KS-SH", {
 
         // Set locale.
 	this.Devices = [];
+	this.Presets = [];
         this.activeItem = 0;         // <-- starts rotation at item 0 (see Rotation below)
         this.rotateInterval = null;  // <-- sets rotation time (see below)
         this.scheduleUpdate();       // <-- When the module updates (see below)
@@ -141,6 +142,7 @@ Module.register("KS-SH", {
                 pname.classList.add("small", "bright");
 		pname.innerHTML = presets[p].scene;
 		const pp = p;
+		const pl = presets;
 		pname.addEventListener("click", ()=>{this.setScene(pp)}, false);
 		prow.appendChild(pname);
 		for(l = 0; l < presets[p].lights.length; l++){
