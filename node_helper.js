@@ -67,5 +67,6 @@ module.exports = NodeHelper.create({
 	}
 	if (notification === 'SET_DEVICE_STATE') {
 		this.setDeviceState(this.notifyDevCmd, payload);
+	}
     }
 });
