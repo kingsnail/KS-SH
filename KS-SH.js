@@ -133,7 +133,7 @@ Module.register("KS-SH", {
 		var prow = document.createElement("div");
 		prow.classList.add("small", "bright");
 		prow.innerHTML = presets[p].scene;
-		wrapper.appendChilnd(prow);
+		wrapper.appendChild(prow);
 	}
         return wrapper;
 		
