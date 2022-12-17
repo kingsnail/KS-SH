@@ -18,10 +18,14 @@ Module.register("KS-SH", {
         updateInterval: 5 * 1 * 1000, // Update every 5 seconds
 	presets: [
 		    {scene: "Scene A",
-		     lights: []
+		     lights: [{id: "65547", brt: "100", color: "100"},
+			      {id: "65546", brt: "100", color: "100"}
+			     ]
 		    },
 		    {scene: "Scene B",
-		     lights: []
+		     lights: [{id: "65547", brt: "0", color: "100"},
+			      {id: "65546", brt: "0", color: "100"}
+			     ]
 		    }
 		]
     },
@@ -131,8 +135,17 @@ Module.register("KS-SH", {
 	var presets = this.config.presets;
 	for(var p = 0; p < presets.length; p++){
 		var prow = document.createElement("div");
+		var pname = document.createElement("span");
 		prow.classList.add("small", "bright");
-		prow.innerHTML = presets[p].scene;
+                pname.classList.add("small", "bright");
+		pname.innerHTML = presets[p].scene;
+		prow.appendChild(pname);
+		for(l = 0; l < presets[p].lights.length; l++){
+  		    var pdetails = document.createElement("span");
+  		    pdetails.innerHTML = "(" + presets[p].lights[l].id + ", " + presets[p].lights[l].brt + ", " + presets[p].lights[l].color +")";
+  		    pdetails.classList.add("small", "bright");
+	            prow.appendChild(pdetails);
+		}
 		wrapper.appendChild(prow);
 	}
         return wrapper;
