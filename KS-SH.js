@@ -170,6 +170,8 @@ Module.register("KS-SH", {
     },
     setFullDevice: function(d, s, b, c){
         console.log("KS-SH: setFullDevice()");
+        var pl = "{ device: " + d.toString() + ", state: " + s + ", bright: " + b.toString() + ", color: " + c.toString() + "}";
+	this.sendSocketNotification('SET_DEVICE_STATE', pl);
     },
 	// this processes your data
     setDevice: function(d, s) { 
