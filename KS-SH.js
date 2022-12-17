@@ -141,7 +141,8 @@ Module.register("KS-SH", {
                 pname.classList.add("small", "bright");
 		pname.innerHTML = presets[p].scene;
 		const pp = p;
-		pname.addEventListener("click", ()=>{this.setScene(p)}, false);
+		const pl = presets;
+		pname.addEventListener("click", ()=>{this.setScene(pp, pl)}, false);
 		prow.appendChild(pname);
 		for(l = 0; l < presets[p].lights.length; l++){
   		    var pdetails = document.createElement("span");
@@ -156,10 +157,9 @@ Module.register("KS-SH", {
     }, // <-- closes the getDom function from above
 
 	// this will activate a scene
-    setScene: function(s){
-	    var presets = self.config.presets;
-	    if (s >= 0 && s < presets.length){
-		    console.log("KS-SH: Activate scene " + presets[s].name);
+    setScene: function(s, plist){
+	    if (s >= 0 && s < plist.length){
+		    console.log("KS-SH: Activate scene " + plist[s].name);
 	    } else {
 	            console.log("KS-SH: Invalid Scene Id " + s.toString());
 		    }
