@@ -162,7 +162,7 @@ Module.register("KS-SH", {
 	    if (s >= 0 && s < plist.length){
 		    console.log("KS-SH: Activate scene " + plist[s].scene);
 		    for(var b = 0; b < plist[s].lights.length; b++){
-		        setFullDevice(plist[s].lights[b].id,plist[s].lights[b].state, plist[s].lights[b].brt, plist[s].lights[b].color);
+		        this.setFullDevice(plist[s].lights[b].id,plist[s].lights[b].state, plist[s].lights[b].brt, plist[s].lights[b].color);
 		    }
 	    } else {
 	            console.log("KS-SH: Invalid Scene Id " + s.toString());
