@@ -16,15 +16,16 @@ Module.register("KS-SH", {
         initialLoadDelay: 4250,
         retryDelay: 2500,
         updateInterval: 5 * 1 * 1000, // Update every 5 seconds
+	showPresetDetails: true,
 	presets: [
 		    {scene: "Scene A",
-		     lights: [{id: "65547", brt: "100", color: "100"},
-			      {id: "65546", brt: "100", color: "100"}
+		     lights: [{id: "65547", state: "on", brt: "100", color: "100"},
+			      {id: "65546", state: "on", brt: "100", color: "100"}
 			     ]
 		    },
 		    {scene: "Scene B",
-		     lights: [{id: "65547", brt: "0", color: "100"},
-			      {id: "65546", brt: "0", color: "100"}
+		     lights: [{id: "65547", state: "off", brt: "0", color: "100"},
+			      {id: "65546", state: "off", brt: "0", color: "100"}
 			     ]
 		    }
 		]
@@ -139,10 +140,12 @@ Module.register("KS-SH", {
 		prow.classList.add("small", "bright");
                 pname.classList.add("small", "bright");
 		pname.innerHTML = presets[p].scene;
+		const pp = p;
+		pname.addEventListener("click", ()=>{this.setScene(p)}, false);
 		prow.appendChild(pname);
 		for(l = 0; l < presets[p].lights.length; l++){
   		    var pdetails = document.createElement("span");
-  		    pdetails.innerHTML = "(" + presets[p].lights[l].id + ", " + presets[p].lights[l].brt + ", " + presets[p].lights[l].color +")";
+  		    pdetails.innerHTML = "(" + presets[p].lights[l].id + ", " + presets[p].lights[l].state+ ", " + presets[p].lights[l].brt + ", " + presets[p].lights[l].color +")";
   		    pdetails.classList.add("small", "bright");
 	            prow.appendChild(pdetails);
 		}
@@ -155,6 +158,11 @@ Module.register("KS-SH", {
 	// this will activate a scene
     setScene: function(s){
 	    var presets = this.config.presets;
+	    if (s >= 0 && s < presets.length){
+		    console.log("KS-SH: Activate scene " + presets[p].name;
+	    } else {
+	            console.log("KS-SH: Invalid Scene Id" + p.toString());
+		    }
     },
 	// this processes your data
     setDevice: function(d, s) { 
