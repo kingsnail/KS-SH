@@ -141,7 +141,8 @@ Module.register("KS-SH", {
 
 	// this will activate a scene
     setScene: function(s){
-    }
+	    var presets = this.config.presets;
+    },
 	// this processes your data
     setDevice: function(d, s) { 
 	if ( s === "on" ) {
