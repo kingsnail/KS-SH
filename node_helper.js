@@ -54,7 +54,7 @@ module.exports = NodeHelper.create({
     setDeviceState: function(cb, d) {
          console.log("KS-SH: setDeviceState " + d);
 	 var dev = JSON.parse(d);
-	 const pythonProcessSD1 = spawn('python',["/home/mark/MagicMirror/modules/KS-SH/python/tradfri-lights.py","-a", "power", "-l", d, "-v", dev.state]);
+	 const pythonProcessSD1 = spawn('python',["/home/mark/MagicMirror/modules/KS-SH/python/tradfri-lights.py","-a", "power", "-l", dev.device, "-v", dev.state]);
 	 pythonProcessSD1.stdout.on('data', function (data) { cb(data.toString()); });
     },
 	
