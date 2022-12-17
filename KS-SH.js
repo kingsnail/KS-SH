@@ -97,7 +97,7 @@ Module.register("KS-SH", {
 		devrow.classList.add("small", "bright", "staterow");
 		
 		statespan.innerHTML = Devs[dev].state.toUpperCase();
-		textspan.innerHTML  = " " + Devs[dev].name + " B(" + Devs[dev].brightness + "), W(" + Devs[dev].warmth + ")";
+		textspan.innerHTML  = " " + Devs[dev].name + " ID(" + Devs[dev].bulbID + "), B(" + Devs[dev].brightness + "), W(" + Devs[dev].warmth + ")";
             	
 		const d = Devs[dev].bulbID;
 		const s = Devs[dev].state;
@@ -139,6 +139,9 @@ Module.register("KS-SH", {
 		
     }, // <-- closes the getDom function from above
 
+	// this will activate a scene
+    setScene: function(s){
+    }
 	// this processes your data
     setDevice: function(d, s) { 
 	if ( s === "on" ) {
