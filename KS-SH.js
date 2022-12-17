@@ -157,11 +157,11 @@ Module.register("KS-SH", {
 
 	// this will activate a scene
     setScene: function(s){
-	    var presets = this.config.presets;
+	    var presets = self.config.presets;
 	    if (s >= 0 && s < presets.length){
 		    console.log("KS-SH: Activate scene " + presets[s].name);
 	    } else {
-	            console.log("KS-SH: Invalid Scene Id" + s.toString());
+	            console.log("KS-SH: Invalid Scene Id " + s.toString());
 		    }
     },
 	// this processes your data
