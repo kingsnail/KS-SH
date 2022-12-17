@@ -159,6 +159,8 @@ Module.register("KS-SH", {
 
 	// this will activate a scene
     setScene: function(s, plist){
+	    console.log("KS-SH: setScene("+ s.toString() + ") called.");
+	    console.log("KS-SH: plist="+ plist.toString());
 	    if (s >= 0 && s < plist.length){
 		    console.log("KS-SH: Activate scene " + plist[s].name);
 	    } else {
