@@ -22,6 +22,7 @@ Module.register("KS-SH", {
 		    },
 		    {scene: "Scene B",
 		     lights: []
+		    }
 		]
     },
 
