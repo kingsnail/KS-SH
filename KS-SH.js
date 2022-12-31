@@ -43,6 +43,7 @@ Module.register("KS-SH", {
         // Set locale.
 	this.Devices = [];
 	this.Presets = [];
+	this.lastclicked = -1;
         this.activeItem = 0;         // <-- starts rotation at item 0 (see Rotation below)
         this.rotateInterval = null;  // <-- sets rotation time (see below)
         this.scheduleUpdate();       // <-- When the module updates (see below)
@@ -149,7 +150,11 @@ Module.register("KS-SH", {
 		    for(l = 0; l < presets[p].lights.length; l++){
   		        var pdetails = document.createElement("span");
   		        pdetails.innerHTML = "(" + presets[p].lights[l].id + ", " + presets[p].lights[l].state+ ", " + presets[p].lights[l].brt + ", " + presets[p].lights[l].color +")";
-  		        pdetails.classList.add("small", "bright");
+  		        if(this.lastclicked == p){
+			    pdetails.classList.add("small", "bright", "clicked");
+			} else {
+			    pdetails.classList.add("small", "bright");
+			}
 	                prow.appendChild(pdetails);
 		    }
 		}
@@ -163,6 +168,7 @@ Module.register("KS-SH", {
     setScene: function(s, plist){
 	    if (s >= 0 && s < plist.length){
 		    console.log("KS-SH: Activate scene " + plist[s].scene);
+		    this.lastclicked = s;
 		    for(var b = 0; b < plist[s].lights.length; b++){
 		        this.setFullDevice(plist[s].lights[b].id,plist[s].lights[b].state, plist[s].lights[b].brt, plist[s].lights[b].color);
 		    }
