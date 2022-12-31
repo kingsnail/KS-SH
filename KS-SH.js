@@ -151,9 +151,9 @@ Module.register("KS-SH", {
   		        var pdetails = document.createElement("span");
   		        pdetails.innerHTML = "(" + presets[p].lights[l].id + ", " + presets[p].lights[l].state+ ", " + presets[p].lights[l].brt + ", " + presets[p].lights[l].color +")";
   		        if(this.lastclicked == p){
-			    pdetails.classList.add("small", "bright", "clicked");
+			    pdetails.classList.add("small", "bright", "selected");
 			} else {
-			    pdetails.classList.add("small", "bright");
+			    pdetails.classList.add("small", "bright", "notselected");
 			}
 	                prow.appendChild(pdetails);
 		    }
