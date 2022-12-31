@@ -31,6 +31,14 @@
   text-align: left;
 }
 
+.KS-SH .notselected {
+      border-color: white;
+      border: solid;
+}
+.KS-SH .selected {
+      border-color: green;
+      border: solid;
+}
 .KS-SH .date {
   color: white;               /* Color the date. Default is white. */
 }
